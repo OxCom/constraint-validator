@@ -1,7 +1,7 @@
 {
     "name": "constraint-validator",
     "main": "dist/validator.js",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "List of constraints to process client side validation",
     "scripts": {
         "test": "NODE_PATH=./src mocha --require ./tests/bootstrap.js ./tests/**/*.spec.js",
@@ -12,7 +12,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+ssh://git@bitbucket.org/OxCom/constraint-validator.git"
+        "url": "https://github.com/OxCom/constraint-validator.git"
     },
     "keywords": [
         "js",
