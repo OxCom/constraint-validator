@@ -1,9 +1,18 @@
 # Constraints form validator
+
+[![npm version](https://badge.fury.io/js/constraint-validator.png)](https://badge.fury.io/js/constraint-validator)
+
+
 This library contains list of classes that allows developers to create custom validation flows.
 
 The main idea to have configured form with rules for each field. Each field can be validated by specific constraint.
  
 Validation constraints inspired by [Symfony Constraints](https://symfony.com/doc/current/reference/constraints.html).
+
+## Install
+```bash
+npm i constraint-validator
+```
 
 ## Basic usage
 ```javascript
