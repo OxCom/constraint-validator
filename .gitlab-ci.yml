@@ -1,0 +1,23 @@
+stages:
+  - test
+
+alpine:
+  image: $CI_REGISTRY/k8s/nodejs/alpine:1.0.0
+  stage: test
+  tags:
+    - docker-builder
+  script:
+    - npm i
+    - npm run test
+    - npm run build
+
+debian:
+  image: $CI_REGISTRY/k8s/nodejs/debian:1.0.0
+  stage: test
+  tags:
+    - docker-builder
+
+  script:
+    - npm i
+    - npm run test
+    - npm run build
