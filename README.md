@@ -101,7 +101,7 @@ console.log(result);
 **Q**: Why not exceptions?  
 **A**: See [try/catch](https://jsperf.com/try-catch-performance-jls/10) performance test
 
-**Q**: Is there same login as symfony has?  
+**Q**: Is there same logic as symfony has?  
 **A**: No, please check documentation for each constraint
 
 ## TODO
