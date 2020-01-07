@@ -10,7 +10,7 @@ node_js:
 
 script:
     - npm install -g codecov
-    - npm ci
+    - npm i
     - npm run build
     - npm run test:coverage
     - npm run test:lint
