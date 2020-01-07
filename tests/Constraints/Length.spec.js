@@ -1,4 +1,4 @@
-import { Length } from '../../dist/validator';
+import { Length } from '../../src/validator';
 
 const assert = require('assert');
 

@@ -1,4 +1,4 @@
-import { Blank } from '../../dist/validator';
+import { Blank } from '../../src/validator';
 
 const assert = require('assert');
 

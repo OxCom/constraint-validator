@@ -1,7 +1,7 @@
-import is_numeric    from 'locutus/php/var/is_numeric';
-import is_float      from 'locutus/php/var/is_float';
-import is_int        from 'locutus/php/var/is_int';
-import * as php_trim from 'locutus/php/strings/trim';
+import is_numeric from 'locutus/php/var/is_numeric';
+import is_float   from 'locutus/php/var/is_float';
+import is_int     from 'locutus/php/var/is_int';
+import php_trim   from 'locutus/php/strings/trim';
 
 /**
  * @param object

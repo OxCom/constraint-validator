@@ -1,4 +1,4 @@
-import { NotEqualTo } from '../../dist/validator';
+import { NotEqualTo } from '../../src/validator';
 
 const assert = require('assert');
 

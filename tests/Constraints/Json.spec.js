@@ -1,4 +1,4 @@
-import { Json } from '../../dist/validator';
+import { Json } from '../../src/validator';
 
 const assert = require('assert');
 

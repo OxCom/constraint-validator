@@ -6,16 +6,18 @@
     "scripts": {
         "test": "NODE_PATH=./src mocha --require ./tests/bootstrap.js ./tests/**/*.spec.js",
         "test:lint": "eslint --ext js -f stylish ./src/ ./tests/",
+        "test:coverage": "nyc -s npm run test",
         "build:dev": "webpack --mode development",
         "build": "webpack --mode production",
-        "watch": "webpack --mode development --watch --progres"
+        "watch": "webpack --mode development --watch --progres",
+        "report:coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov"
     },
     "repository": {
         "type": "git",
         "url": "https://github.com/OxCom/constraint-validator.git"
     },
     "keywords": [
-        "js",
+        "javascript",
         "validator",
         "constraint"
     ],
@@ -27,15 +29,19 @@
     "homepage": "https://github.com/OxCom/constraint-validator",
     "devDependencies": {
         "@babel/core": "^7.7.7",
+        "@babel/plugin-proposal-export-default-from": "^7.7.4",
+        "@babel/plugin-transform-runtime": "^7.7.6",
         "@babel/preset-env": "^7.7.7",
         "@babel/register": "^7.7.7",
         "@babel/runtime": "^7.7.7",
         "babel-loader": "^8.0.6",
+        "babel-plugin-add-module-exports": "^1.0.2",
         "clean-webpack-plugin": "^3.0.0",
         "eslint": "^6.8.0",
         "jsdom": "^15.2.1",
         "jsdom-global": "^3.0.2",
         "mocha": "^6.2.2",
+        "nyc": "^15.0.0",
         "terser-webpack-plugin": "^2.3.1",
         "webpack": "^4.41.5",
         "webpack-cli": "^3.3.10",

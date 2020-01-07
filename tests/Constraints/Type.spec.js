@@ -1,4 +1,4 @@
-import { Type } from '../../dist/validator';
+import { Type } from '../../src/validator';
 
 const assert = require('assert');
 

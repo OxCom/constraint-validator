@@ -1,4 +1,4 @@
-import { DivisibleBy } from '../../dist/validator';
+import { DivisibleBy } from '../../src/validator';
 
 const assert = require('assert');
 

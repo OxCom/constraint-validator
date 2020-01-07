@@ -1,4 +1,4 @@
-import { GreaterThan } from '../../dist/validator';
+import { GreaterThan } from '../../src/validator';
 
 const assert = require('assert');
 

@@ -1,4 +1,4 @@
-import { LessThanOrEqual } from '../../dist/validator';
+import { LessThanOrEqual } from '../../src/validator';
 
 const assert = require('assert');
 

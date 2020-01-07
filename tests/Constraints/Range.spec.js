@@ -1,4 +1,4 @@
-import { Range } from '../../dist/validator';
+import { Range } from '../../src/validator';
 
 const assert = require('assert');
 

@@ -1,4 +1,4 @@
-import { Url } from '../../dist/validator';
+import { Url } from '../../src/validator';
 
 const assert = require('assert');
 

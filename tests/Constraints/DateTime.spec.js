@@ -1,4 +1,4 @@
-import { DateTime } from '../../dist/validator';
+import { DateTime } from '../../src/validator';
 
 const assert = require('assert');
 

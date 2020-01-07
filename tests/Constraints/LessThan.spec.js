@@ -1,4 +1,4 @@
-import { LessThan } from '../../dist/validator';
+import { LessThan } from '../../src/validator';
 
 const assert = require('assert');
 

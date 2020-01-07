@@ -1,4 +1,4 @@
-import { PositiveOrZero } from '../../dist/validator';
+import { PositiveOrZero } from '../../src/validator';
 
 const assert = require('assert');
 

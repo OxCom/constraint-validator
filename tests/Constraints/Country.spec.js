@@ -1,4 +1,4 @@
-import { Country } from '../../dist/validator';
+import { Country } from '../../src/validator';
 
 const assert = require('assert');
 

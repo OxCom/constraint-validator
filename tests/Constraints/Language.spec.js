@@ -1,4 +1,4 @@
-import { Language } from '../../dist/validator';
+import { Language } from '../../src/validator';
 
 const assert = require('assert');
 

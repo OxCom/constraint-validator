@@ -1,4 +1,4 @@
-import { Choice } from '../../dist/validator';
+import { Choice } from '../../src/validator';
 
 const assert = require('assert');
 

@@ -9,7 +9,8 @@ node_js:
     - 8
 
 script:
-    - npm i
+    - npm install -g codecov
+    - npm ci
     - npm run build
-    - npm run test
+    - npm run test:coverage
     - npm run test:lint

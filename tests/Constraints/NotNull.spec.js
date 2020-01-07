@@ -1,4 +1,4 @@
-import { NotNull } from '../../dist/validator';
+import { NotNull } from '../../src/validator';
 
 const assert = require('assert');
 

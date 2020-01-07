@@ -1,4 +1,4 @@
-import { Validator, NotBlank, Email } from '../../dist/validator';
+import { Validator, NotBlank, Email } from '../../src/validator';
 
 const assert = require('assert');
 

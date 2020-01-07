@@ -1,4 +1,4 @@
-import { Timezone } from '../../dist/validator';
+import { Timezone } from '../../src/validator';
 
 const assert = require('assert');
 

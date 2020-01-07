@@ -1,4 +1,4 @@
-import { Ip } from '../../dist/validator';
+import { Ip } from '../../src/validator';
 
 const assert = require('assert');
 

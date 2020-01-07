@@ -1,4 +1,4 @@
-import { Count } from '../../dist/validator';
+import { Count } from '../../src/validator';
 
 const assert = require('assert');
 

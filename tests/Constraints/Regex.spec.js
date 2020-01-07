@@ -1,4 +1,4 @@
-import { Regex } from '../../dist/validator';
+import { Regex } from '../../src/validator';
 
 const assert = require('assert');
 

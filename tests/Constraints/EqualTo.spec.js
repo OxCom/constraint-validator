@@ -1,4 +1,4 @@
-import { EqualTo } from '../../dist/validator';
+import { EqualTo } from '../../src/validator';
 
 const assert = require('assert');
 
