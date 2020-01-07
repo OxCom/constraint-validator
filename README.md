@@ -7,13 +7,12 @@ Validation constraints inspired by [Symfony Constraints](https://symfony.com/doc
 
 ## Basic usage
 ```javascript
-// TODO: fix this usage after release to provide correct import
 import {
     Form,
     NotBlank,
     Email,
     Length
-} from 'constraint-validator/dist/validator';
+} from 'constraint-validator';
 
 const form = new Form();
 
