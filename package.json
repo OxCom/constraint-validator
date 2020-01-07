@@ -1,5 +1,6 @@
 {
     "name": "constraint-validator",
+    "main": "dist/validator.js",
     "version": "1.0.0",
     "description": "List of constraints to process client side validation",
     "scripts": {
