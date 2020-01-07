@@ -3,50 +3,50 @@ The Validator is designed to validate objects against constraints. They are asse
 
 ## Supported constraints
 Basic constraints:
-- [NotBlank](docs/Constraints/NotBlank.md)
-- [Blank](docs/Constraints/Blank.md)
-- [NotNull](docs/Constraints/NotNull.md)
-- [IsNull](docs/Constraints/IsNull.md)
-- [IsTrue](docs/Constraints/IsTrue.md)
-- [IsFalse](docs/Constraints/IsFalse.md)
-- [Type](docs/Constraints/Type.md)
+- [NotBlank](./Constraints/NotBlank.md)
+- [Blank](./Constraints/Blank.md)
+- [NotNull](./Constraints/NotNull.md)
+- [IsNull](./Constraints/IsNull.md)
+- [IsTrue](./Constraints/IsTrue.md)
+- [IsFalse](./Constraints/IsFalse.md)
+- [Type](./Constraints/Type.md)
 
 String constraints:
-- [Email](docs/Constraints/Email.md)
-- [Length](docs/Constraints/Length.md)
-- [Url](docs/Constraints/Url.md)
-- [Regex](docs/Constraints/Regex.md)
-- [Ip](docs/Constraints/Ip.md)
-- [Json](docs/Constraints/Json.md)
+- [Email](./Constraints/Email.md)
+- [Length](./Constraints/Length.md)
+- [Url](./Constraints/Url.md)
+- [Regex](./Constraints/Regex.md)
+- [Ip](./Constraints/Ip.md)
+- [Json](./Constraints/Json.md)
 
 Comparison constraints:
-- [EqualTo](docs/Constraints/EqualTo.md)
-- [NotEqualTo](docs/Constraints/NotEqualTo.md)
-- [LessThan](docs/Constraints/LessThan.md)
-- [LessThanOrEqual](docs/Constraints/LessThanOrEqual.md)
-- [GreaterThan](docs/Constraints/GreaterThan.md)
-- [GreaterThanOrEqual](docs/Constraints/GreaterThanOrEqual.md)
-- [Range](docs/Constraints/Range.md)
-- [DivisibleBy](docs/Constraints/DivisibleBy.md)
+- [EqualTo](./Constraints/EqualTo.md)
+- [NotEqualTo](./Constraints/NotEqualTo.md)
+- [LessThan](./Constraints/LessThan.md)
+- [LessThanOrEqual](./Constraints/LessThanOrEqual.md)
+- [GreaterThan](./Constraints/GreaterThan.md)
+- [GreaterThanOrEqual](./Constraints/GreaterThanOrEqual.md)
+- [Range](./Constraints/Range.md)
+- [DivisibleBy](./Constraints/DivisibleBy.md)
 
 Number constraints:
-- [Positive](docs/Constraints/Positive.md)
-- [PositiveOrZero](docs/Constraints/PositiveOrZero.md)
-- [Negative](docs/Constraints/Negative.md)
-- [NegativeOrZero](docs/NegativeOrZero.md)
+- [Positive](./Constraints/Positive.md)
+- [PositiveOrZero](./Constraints/PositiveOrZero.md)
+- [Negative](./Constraints/Negative.md)
+- [NegativeOrZero](./NegativeOrZero.md)
 
 Date constraints:
-- [DateTime](docs/Constraints/DateTime.md)
-- [Timezone](docs/Constraints/Timezone.md)
+- [DateTime](./Constraints/DateTime.md)
+- [Timezone](./Constraints/Timezone.md)
 
 Choice constraints:
-- [Choice](docs/Constraints/Choice.md)
-- [Language](docs/Constraints/Language.md)
-- [Locale](docs/Constraints/Locale.md)
-- [Country](docs/Constraints/Country.md)
+- [Choice](./Constraints/Choice.md)
+- [Language](./Constraints/Language.md)
+- [Locale](./Constraints/Locale.md)
+- [Country](./Constraints/Country.md)
 
 Other constraints:
-- [Count](docs/Constraints/Count.md)
+- [Count](./Constraints/Count.md)
 
 ## Create custom constraint
 

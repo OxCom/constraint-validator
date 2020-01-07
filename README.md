@@ -77,7 +77,7 @@ console.log(result);
   - [Positive](docs/Constraints/Positive.md)
   - [PositiveOrZero](docs/Constraints/PositiveOrZero.md)
   - [Negative](docs/Constraints/Negative.md)
-  - [NegativeOrZero](docs/NegativeOrZero.md)
+  - [NegativeOrZero](docs/Constraints/NegativeOrZero.md)
   
   Date constraints:
   - [DateTime](docs/Constraints/DateTime.md)
