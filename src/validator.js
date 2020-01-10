@@ -33,6 +33,7 @@ import Regex              from './Constraints/Regex';
 import Range              from './Constraints/Range';
 import Locale             from './Constraints/Locale';
 import Issn               from './Constraints/Issn';
+import Luhn               from './Constraints/Luhn';
 import Validator          from './Validator/Validator';
 import Form               from './Validator/Form';
 
@@ -72,6 +73,7 @@ export default {
     Range: Range,
     Locale: Locale,
     Issn: Issn,
+    Luhn: Luhn,
     Validator: Validator,
     Form: Form,
 };

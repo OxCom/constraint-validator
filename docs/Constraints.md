@@ -47,10 +47,11 @@ Choice constraints:
 
 Financial and other Number Constraints:
 - [Currency](./Constraints/Currency.md)
+- [Luhn](./Constraints/Luhn.md)
+- [Issn](./Constraints/Issn.md)
 
 Other constraints:
 - [Count](./Constraints/Count.md)
-- [Issn](./Constraints/Issn.md)
 
 ## Create custom constraint
 

@@ -93,6 +93,7 @@ console.log(result);
   Financial and other Number Constraints:
   - [Currency](docs/Constraints/Currency.md)
   - [Issn](docs/Constraints/Issn.md)
+  - [Luhn](docs/Constraints/Luhn.md)
   
   Other constraints:
   - [Count](docs/Constraints/Count.md)
@@ -113,7 +114,6 @@ console.log(result);
 Investigate and add financial and other number constraints
 - Bic
 - CardScheme
-- Luhn
 - Iban
 - Isbn
 - Callback
