@@ -45,6 +45,9 @@ Choice constraints:
 - [Locale](./Constraints/Locale.md)
 - [Country](./Constraints/Country.md)
 
+Financial and other Number constraints
+- [Luhn](./Constraints/Luhn.md)
+
 Other constraints:
 - [Count](./Constraints/Count.md)
 

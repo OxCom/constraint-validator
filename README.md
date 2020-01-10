@@ -90,6 +90,9 @@ console.log(result);
   - [Locale](docs/Constraints/Locale.md)
   - [Country](docs/Constraints/Country.md)
   
+  Financial and other Number constraints
+  - [Luhn](docs/Constraints/Luhn.md)
+  
   Other constraints:
   - [Count](docs/Constraints/Count.md)
 
@@ -110,7 +113,6 @@ Investigate and add financial and other number constraints
 - Bic
 - CardScheme
 - Currency
-- Luhn
 - Iban
 - Isbn
 - Issn
