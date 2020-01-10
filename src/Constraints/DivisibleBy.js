@@ -43,7 +43,11 @@ export default class DivisibleBy extends AbstractConstraint {
      * @return {Error|undefined}
      */
     validate(value) {
-        if (!isNumeric(value) || isNaN(value)) {
+        if (this.isEmptyValue(value)) {
+            return;
+        }
+
+        if (!isNumeric(value)) {
             return this
                 .getViolationBuilder()
                 .setParameter('value', value)
@@ -60,7 +64,5 @@ export default class DivisibleBy extends AbstractConstraint {
                 .setParameter('value', value)
                 .build(this.options.message);
         }
-
-        return;
     }
 }

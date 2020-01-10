@@ -13,12 +13,6 @@ export default class Regex extends AbstractConstraint {
         if (typeof this.options.pattern !== 'string' && !(this.options.pattern instanceof RegExp)) {
             throw new Error(`Pattern should be type of "string", ${typeof this.options.pattern} given.`);
         }
-
-        try {
-            new RegExp(this.options.pattern);
-        } catch(e) {
-            throw new Error('Pattern should valid regular expression.');
-        }
     }
 
     /**

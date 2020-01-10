@@ -13,7 +13,10 @@ describe('Currency', function () {
         it('Valid', function () {
             const object = new Currency();
 
-            ['rub', 'RUB', 'usd', 'USD', 'eur', 'EUR'].forEach((code) => {
+            [
+                'rub', 'RUB', 'usd', 'USD', 'eur', 'EUR',
+                '', null, undefined
+            ].forEach((code) => {
                 const e = object.validate(code);
 
                 assert.ok(typeof e === 'undefined', e);
@@ -23,7 +26,10 @@ describe('Currency', function () {
         it('Invalid', function () {
             const object = new Currency();
 
-            ['rup', 'pgb', 'foobar', 1, 100, 804, '804']
+            [
+                'rup', 'pgb', 'foobar', 1, 100, 804, '804',
+                function() {}
+            ]
                 .forEach((code) => {
                     const e = object.validate(code);
 

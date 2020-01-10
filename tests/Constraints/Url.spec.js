@@ -62,6 +62,7 @@ describe('Url', function () {
             });
 
             [
+                '', null, undefined,
                 'example.com',
                 'example.com/',
                 'example.com/test',

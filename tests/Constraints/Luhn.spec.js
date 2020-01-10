@@ -14,6 +14,7 @@ describe('Luhn', function () {
             const object = new Luhn();
 
             [
+                '', null, undefined,
                 '42424242424242424242',
                 '378282246310005',
                 '371449635398431',

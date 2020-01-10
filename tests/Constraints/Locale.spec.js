@@ -13,7 +13,7 @@ describe('Locale', function () {
         it('Valid', function () {
             const object = new Locale();
 
-            ['en-US', 'ru', 'ru_RU'].forEach((code) => {
+            ['en-US', 'ru', 'ru_RU', '', null, undefined,].forEach((code) => {
                 const e = object.validate(code);
 
                 assert.ok(typeof e === 'undefined', e);

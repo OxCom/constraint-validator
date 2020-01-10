@@ -12,6 +12,15 @@ describe('Timezone', function () {
     describe('#validate()', function () {
         const object = new Timezone();
 
+        it('Valid: empty values should be considered as valid', function() {
+            ['', null, undefined,].forEach((value) => {
+                const e = object.validate(value);
+
+                assert.ok(typeof e === 'undefined', e);
+            });
+
+        });
+
         it('Valid: America/Los_Angeles', function () {
             const e = object.validate('America/Los_Angeles');
 

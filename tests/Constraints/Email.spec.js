@@ -52,6 +52,7 @@ describe('Email', function () {
             });
 
             [
+                '', null, undefined,
                 'asd@123.12', '123@qwe.12', '123@123.12', 'qwe@qwe.12',
                 'asd@123.qw', '123@qwe.qw', '123@123.qw', 'qwe@qwe.qw',
                 '<><>@123.qw',
@@ -82,6 +83,7 @@ describe('Email', function () {
             const object = new Email({mode: 'html5_regexp'});
 
             [
+                '', null, undefined,
                 '  asd@123.12  ', 'asd@123.12  ',
                 'asd@123.12', '123@qwe.12', '123@123.12', 'qwe@qwe.12',
                 'asd@123.qw', '123@qwe.qw', '123@123.qw', 'qwe@qwe.qw',
@@ -111,6 +113,7 @@ describe('Email', function () {
             const object = new Email({mode: 'html5_input'});
 
             [
+                '', null, undefined,
                 'asd@123.12', '123@qwe.12', '123@123.12', 'qwe@qwe.12',
                 'asd@123.qw', '123@qwe.qw', '123@123.qw', 'qwe@qwe.qw',
                 'asd@123', '123@qwe', '123@123', 'qwe@qwe',

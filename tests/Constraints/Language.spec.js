@@ -13,7 +13,7 @@ describe('Language', function () {
         it('Valid', function () {
             const object = new Language();
 
-            ['ru', 'en', 'my'].forEach((code) => {
+            ['ru', 'en', 'my', '', null, undefined,].forEach((code) => {
                 const e = object.validate(code);
 
                 assert.ok(typeof e === 'undefined', e);

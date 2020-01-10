@@ -78,7 +78,7 @@ export default class Email extends AbstractConstraint {
     /**
      * Test provided value and return Error if occurs
      *
-     * @param {String} value
+     * @param value
      *
      * @return {Error|undefined}
      */
@@ -119,12 +119,7 @@ export default class Email extends AbstractConstraint {
                 }
 
                 break;
-
-            default:
-                throw new Error(`Invalid validation mode provided: ${this.options.mode}`);
         }
-
-        return;
     }
 
     static get MODE_SIMPLE() {

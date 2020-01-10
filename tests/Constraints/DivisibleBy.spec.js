@@ -29,6 +29,9 @@ describe('DivisibleBy', function () {
                 {value: 10, by: 5},
                 {value: 1.75, by: 1.75},
                 {value: 3, by: 0.5},
+                {value: '', by: 0.5},
+                {value: undefined, by: 0.5},
+                {value: null, by: 0.5},
             ].forEach((item) => {
                 const object = new DivisibleBy({value: item.by});
                 const e = object.validate(item.value);
@@ -36,6 +39,20 @@ describe('DivisibleBy', function () {
                 assert.ok(typeof e === 'undefined', e);
             });
         });
+
+        it('is not valid - type', function () {
+            [
+                {value: 'asd', by: 0.5},
+                {value: function() {}, by: 0.5},
+            ].forEach((item) => {
+                const object = new DivisibleBy({value: item.by});
+                const e = object.validate(item.value);
+
+                assert.strictEqual(e.message, `This values has different types. Given type is "${typeof item.value}"; Expected type is "number".`);
+            });
+        });
+
+
 
         it('is not valid', function () {
             [
