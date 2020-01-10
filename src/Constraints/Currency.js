@@ -1,16 +1,17 @@
-import AbstractConstraint from './AbstractConstraint';
-import { trim }           from '../Utils/functions';
-import LocaleDetector     from '../Utils/LocaleDetector';
+import AbstractConstraint  from './AbstractConstraint';
+import { trim } from '../Utils/functions';
 
-const MESSAGE_INVALID = 'This value is not a valid locale.';
+const MESSAGE_INVALID = 'This value is not a valid currency.';
 
 /**
  * @type {array}
  */
-const list = require('../Resources/locales');
+const list = require('../Resources/currencies');
 
-export default class Locale extends AbstractConstraint {
+export default class Currency extends AbstractConstraint {
     /**
+     * Validates that a value is a valid language Unicode language identifier (e.g. fr or zh-Hant).
+     *
      * @param {{message: string, trim: boolean}} [options]
      */
     constructor(options) {
@@ -43,9 +44,7 @@ export default class Locale extends AbstractConstraint {
             return;
         }
 
-        const cValue = LocaleDetector.canonicalize(value);
-
-        if (typeof cValue !== 'string' || !list.includes(cValue)) {
+        if (typeof value !== 'string' || !list.includes(value.toUpperCase())) {
             return this
                 .getViolationBuilder()
                 .setParameter('value', value)

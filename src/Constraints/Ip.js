@@ -121,7 +121,7 @@ export default class Ip extends AbstractConstraint {
             || value === null
             || typeof value === 'undefined'
         ) {
-            return undefined;
+            return;
         }
 
         // general check that we have valid IP address
@@ -178,7 +178,7 @@ export default class Ip extends AbstractConstraint {
                 throw new Error(`Invalid validation version provided: ${this.options.version}`);
         }
 
-        return undefined;
+        return;
     }
 
     static get MODE_ALL() {

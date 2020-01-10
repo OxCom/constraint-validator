@@ -28,7 +28,7 @@ export default class IsFalse extends AbstractConstraint {
      */
     validate(value) {
         if (value === false || value === 0 || value === '0' || value === null) {
-            return undefined;
+            return;
         }
 
         return this

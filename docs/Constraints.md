@@ -45,6 +45,9 @@ Choice constraints:
 - [Locale](./Constraints/Locale.md)
 - [Country](./Constraints/Country.md)
 
+Financial and other Number Constraints:
+- [Currency](./Constraints/Currency.md)
+
 Other constraints:
 - [Count](./Constraints/Count.md)
 - [Issn](./Constraints/Issn.md)
@@ -52,9 +55,9 @@ Other constraints:
 ## Create custom constraint
 
 ```javascript
-import AbstractConstraint from 'AbstractConstraint';
+import { AbstractConstraint } from 'constraint-validator';
 
-export default class MyAwesomeCheck extends AbstractConstraint {
+export default class MyAwesomeConstraint extends AbstractConstraint {
     /**
      * @return {{message: string}}
      */
@@ -82,16 +85,20 @@ export default class MyAwesomeCheck extends AbstractConstraint {
      */
     validate(value) {
         // provide your custom validation logic
-        if (value === this.options.my_option) {
-            return undefined;
-        }
+        let isValid = false;
 
-        // build validate error
-        return this
-            .getViolationBuilder()
-            .setParameter('value', value)
-            .build(this.options.message);
+        /** 
+         * hack, hack, hack ...
+         * isValid => true || false 
+         */
+
+        if (!isValid) {
+            // build validation error
+            return this
+                .getViolationBuilder()
+                .setParameter('value', value)
+                .build(this.options.message);
+        }
     }
 }
-
 ```

@@ -88,7 +88,7 @@ export default class Email extends AbstractConstraint {
         }
 
         if (typeof value !== 'string' || this.isEmptyValue(value)) {
-            return undefined;
+            return;
         }
 
         switch (this.options.mode) {
@@ -124,7 +124,7 @@ export default class Email extends AbstractConstraint {
                 throw new Error(`Invalid validation mode provided: ${this.options.mode}`);
         }
 
-        return undefined;
+        return;
     }
 
     static get MODE_SIMPLE() {

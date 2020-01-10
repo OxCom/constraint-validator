@@ -55,7 +55,7 @@ export default class Length extends AbstractConstraint {
         }
 
         if (typeof value !== 'string') {
-            return undefined;
+            return;
         }
 
         const length = value.length;
@@ -84,6 +84,6 @@ export default class Length extends AbstractConstraint {
                 .build(this.options.message_min);
         }
 
-        return undefined;
+        return;
     }
 }

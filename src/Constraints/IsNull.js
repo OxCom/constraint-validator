@@ -29,7 +29,7 @@ export default class IsNull extends AbstractConstraint {
      */
     validate(value) {
         if (isNull(value)) {
-            return undefined;
+            return;
         }
 
         return this
