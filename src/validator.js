@@ -1,7 +1,9 @@
+import AbstractConstraint from './Constraints/AbstractConstraint';
 import Length             from './Constraints/Length';
 import Email              from './Constraints/Email';
 import Blank              from './Constraints/Blank';
 import Country            from './Constraints/Country';
+import Currency           from './Constraints/Currency';
 import NotBlank           from './Constraints/NotBlank';
 import Url                from './Constraints/Url';
 import IsFalse            from './Constraints/IsFalse';
@@ -35,11 +37,13 @@ import Validator          from './Validator/Validator';
 import Form               from './Validator/Form';
 
 export default {
+    AbstractConstraint: AbstractConstraint,
     Length: Length,
     Email: Email,
     Blank: Blank,
     NotBlank: NotBlank,
     Country: Country,
+    Currency: Currency,
     Url: Url,
     IsFalse: IsFalse,
     IsTrue: IsTrue,

@@ -28,7 +28,7 @@ export default class IsTrue extends AbstractConstraint {
      */
     validate(value) {
         if (value === true || value === 1 || value === '1' || value === null) {
-            return undefined;
+            return;
         }
 
         return this

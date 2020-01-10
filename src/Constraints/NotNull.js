@@ -35,6 +35,6 @@ export default class NotNull extends AbstractConstraint {
                 .build(this.options.message);
         }
 
-        return undefined;
+        return;
     }
 }

@@ -90,9 +90,12 @@ console.log(result);
   - [Locale](docs/Constraints/Locale.md)
   - [Country](docs/Constraints/Country.md)
   
+  Financial and other Number Constraints:
+  - [Currency](docs/Constraints/Currency.md)
+  - [Issn](docs/Constraints/Issn.md)
+  
   Other constraints:
   - [Count](docs/Constraints/Count.md)
-  - [Issn](docs/Constraints/Issn.md)
 
 ## Dependencies
 - [locutus](https://github.com/kvz/locutus) - JavaScript implementation of PHP functions
@@ -110,7 +113,6 @@ console.log(result);
 Investigate and add financial and other number constraints
 - Bic
 - CardScheme
-- Currency
 - Luhn
 - Iban
 - Isbn

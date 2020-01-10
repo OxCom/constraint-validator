@@ -52,7 +52,7 @@ export default class Regex extends AbstractConstraint {
         }
 
         if (this.isEmptyValue(value)) {
-            return undefined;
+            return;
         }
 
         if (typeof value !== 'string') {
@@ -71,6 +71,6 @@ export default class Regex extends AbstractConstraint {
                 .build(this.options.message);
         }
 
-        return undefined;
+        return;
     }
 }

@@ -45,7 +45,7 @@ export default class DateTime extends AbstractConstraint {
         }
 
         if (this.isEmptyValue(value) || isDateObject(value)) {
-            return undefined;
+            return;
         }
 
         if (typeof value !== 'string' || !LuxonDateTime.fromFormat(value, this.options.format).isValid) {
@@ -56,6 +56,6 @@ export default class DateTime extends AbstractConstraint {
                 .build(this.options.message);
         }
 
-        return undefined;
+        return;
     }
 }

@@ -108,7 +108,7 @@ export default class Form {
             }
         }
 
-        return undefined;
+        return;
     }
 
     getData() {
