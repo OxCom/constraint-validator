@@ -6,7 +6,7 @@ const MESSAGE_INVALID = 'This value is not a valid language.';
 /**
  * @type {array}
  */
-const list = require('./../languages');
+const list = require('../Resources/languages');
 
 export default class Language extends AbstractConstraint {
     /**
@@ -41,7 +41,7 @@ export default class Language extends AbstractConstraint {
         }
 
         if (this.isEmptyValue(value)) {
-            return undefined;
+            return;
         }
 
         if (typeof value !== 'string' || !list.includes(value.toUpperCase())) {
@@ -51,7 +51,7 @@ export default class Language extends AbstractConstraint {
                 .build(this.options.message);
         }
 
-        return undefined;
+        return;
     }
 }
 

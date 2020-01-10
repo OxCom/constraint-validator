@@ -90,6 +90,6 @@ export default class Choice extends AbstractConstraint {
                 .build(this.options.message);
         }
 
-        return undefined;
+        return;
     }
 }

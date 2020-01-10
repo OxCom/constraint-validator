@@ -61,6 +61,6 @@ export default class DivisibleBy extends AbstractConstraint {
                 .build(this.options.message);
         }
 
-        return undefined;
+        return;
     }
 }

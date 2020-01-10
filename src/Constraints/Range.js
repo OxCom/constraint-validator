@@ -105,6 +105,6 @@ export default class Range extends AbstractConstraint {
                 .build(this.options.message_max);
         }
 
-        return undefined;
+        return;
     }
 }

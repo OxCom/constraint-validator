@@ -35,7 +35,7 @@ export default class Timezone extends AbstractConstraint {
         }
 
         if (this.isEmptyValue(value)) {
-            return undefined;
+            return;
         }
 
         if (typeof value !== 'string' || !LuxonDateTime.local().setZone(value).isValid) {
@@ -45,6 +45,6 @@ export default class Timezone extends AbstractConstraint {
                 .build(this.options.message);
         }
 
-        return undefined;
+        return;
     }
 }

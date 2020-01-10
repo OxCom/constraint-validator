@@ -46,6 +46,6 @@ export default class NotBlank extends AbstractConstraint {
                 .build(this.options.message);
         }
 
-        return undefined;
+        return;
     }
 }

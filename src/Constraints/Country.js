@@ -10,7 +10,7 @@ const MODE_NUMERIC = 'numeric';
 /**
  * @type {array}
  */
-const list = require('./../countries');
+const list = require('../Resources/countries');
 
 /**
  * @param {string} value
@@ -104,7 +104,7 @@ export default class Country extends AbstractConstraint {
         }
 
         if (this.isEmptyValue(value)) {
-            return undefined;
+            return;
         }
 
         if (typeof value !== 'string'
@@ -120,7 +120,7 @@ export default class Country extends AbstractConstraint {
                 .build(this.options.message);
         }
 
-        return undefined;
+        return;
     }
 
     static get MODE_ALPHA2() {

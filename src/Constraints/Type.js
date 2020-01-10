@@ -120,7 +120,7 @@ export default class Type extends AbstractConstraint {
         }
 
         if (result) {
-            return undefined;
+            return;
         }
 
         return this
