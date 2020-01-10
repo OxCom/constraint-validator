@@ -92,6 +92,7 @@ console.log(result);
   
   Other constraints:
   - [Count](docs/Constraints/Count.md)
+  - [Issn](docs/Constraints/Issn.md)
 
 ## Dependencies
 - [locutus](https://github.com/kvz/locutus) - JavaScript implementation of PHP functions
@@ -113,7 +114,6 @@ Investigate and add financial and other number constraints
 - Luhn
 - Iban
 - Isbn
-- Issn
 - Callback
 - All
 

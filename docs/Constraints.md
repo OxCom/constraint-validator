@@ -47,6 +47,7 @@ Choice constraints:
 
 Other constraints:
 - [Count](./Constraints/Count.md)
+- [Issn](./Constraints/Issn.md)
 
 ## Create custom constraint
 
