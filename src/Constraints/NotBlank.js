@@ -28,13 +28,15 @@ export default class NotBlank extends AbstractConstraint {
      * @return {Error|undefined}
      */
     validate (value) {
-        if (this.isEmptyValue(value)) {
-            return;
+        if (typeof value === 'string' && value.length === 0
+            || typeof value !== 'string' && typeof value !== 'object' && isNaN(value)
+            || typeof value === 'undefined'
+            || !this.options.allow_null && value === null
+        ) {
+            return this
+                .getViolationBuilder()
+                .setParameter('value', value)
+                .build(this.options.message);
         }
-
-        return this
-            .getViolationBuilder()
-            .setParameter('value', value)
-            .build(this.options.message);
     }
 }
