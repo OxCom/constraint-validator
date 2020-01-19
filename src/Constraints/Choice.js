@@ -89,7 +89,5 @@ export default class Choice extends AbstractConstraint {
                 .setParameter('choices', this.options.choices.join(', '))
                 .build(this.options.message);
         }
-
-        return;
     }
 }

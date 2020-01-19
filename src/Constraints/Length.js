@@ -83,7 +83,5 @@ export default class Length extends AbstractConstraint {
                 .setParameter('value', value)
                 .build(this.options.message_min);
         }
-
-        return;
     }
 }

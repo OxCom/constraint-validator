@@ -55,7 +55,5 @@ export default class DateTime extends AbstractConstraint {
                 .setParameter('format', this.options.format)
                 .build(this.options.message);
         }
-
-        return;
     }
 }

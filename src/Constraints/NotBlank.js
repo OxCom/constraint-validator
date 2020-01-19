@@ -21,13 +21,6 @@ export default class NotBlank extends AbstractConstraint {
     }
 
     /**
-     * @return {string[]}
-     */
-    getRequiredOptions () {
-        return [];
-    }
-
-    /**
      * Test provided value and return Error if occurs
      *
      * @param value
@@ -35,17 +28,13 @@ export default class NotBlank extends AbstractConstraint {
      * @return {Error|undefined}
      */
     validate (value) {
-        if (typeof value === 'string' && value.length === 0
-            || typeof value !== 'string' && typeof value !== 'object' && isNaN(value)
-            || typeof value === 'undefined'
-            || !this.options.allow_null && value === null
-        ) {
-            return this
-                .getViolationBuilder()
-                .setParameter('value', value)
-                .build(this.options.message);
+        if (this.isEmptyValue(value)) {
+            return;
         }
 
-        return;
+        return this
+            .getViolationBuilder()
+            .setParameter('value', value)
+            .build(this.options.message);
     }
 }

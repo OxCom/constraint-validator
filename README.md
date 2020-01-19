@@ -91,6 +91,7 @@ console.log(result);
   - [Country](docs/Constraints/Country.md)
   
   Financial and other Number Constraints:
+  - [CardScheme](docs/Constraints/CardScheme.md)
   - [Currency](docs/Constraints/Currency.md)
   - [Issn](docs/Constraints/Issn.md)
   - [Luhn](docs/Constraints/Luhn.md)

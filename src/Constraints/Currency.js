@@ -50,8 +50,6 @@ export default class Currency extends AbstractConstraint {
                 .setParameter('value', value)
                 .build(this.options.message);
         }
-
-        return;
     }
 }
 

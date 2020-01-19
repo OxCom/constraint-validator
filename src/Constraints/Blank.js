@@ -27,18 +27,11 @@ export default class Blank extends AbstractConstraint {
      * @return {Error|undefined}
      */
     validate(value) {
-        if (typeof value === 'string' && value.length > 0
-            || (typeof value !== 'string'
-                && typeof value !== 'object'
-                && !(isNaN(value) || typeof value === 'undefined' || value === null)
-            )
-        ) {
+        if (this.isEmptyValue(value)) {
             return this
                 .getViolationBuilder()
                 .setParameter('value', value)
                 .build(this.options.message);
         }
-
-        return;
     }
 }

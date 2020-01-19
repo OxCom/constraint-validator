@@ -51,8 +51,6 @@ export default class Locale extends AbstractConstraint {
                 .setParameter('value', value)
                 .build(this.options.message);
         }
-
-        return;
     }
 }
 
