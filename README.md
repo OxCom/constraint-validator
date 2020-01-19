@@ -114,7 +114,6 @@ console.log(result);
 ## TODO
 Investigate and add financial and other number constraints
 - Bic
-- CardScheme
 - Iban
 - Isbn
 - Callback
