@@ -35,7 +35,5 @@ export default class Json extends AbstractConstraint {
                 .setParameter('value', value)
                 .build(this.options.message);
         }
-
-        return;
     }
 }

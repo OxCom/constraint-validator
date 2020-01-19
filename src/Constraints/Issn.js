@@ -33,7 +33,7 @@ export default class Issn extends AbstractConstraint {
      */
     validate(value) {
         if (typeof value !== 'string' || this.isEmptyValue(value)) {
-            return undefined;
+            return;
         }
 
         value = this.options.trim ? trim(value) : value;
@@ -69,7 +69,5 @@ export default class Issn extends AbstractConstraint {
                 .setParameter('value', value)
                 .build(this.options.message);
         }
-
-        return undefined;
     }
 }

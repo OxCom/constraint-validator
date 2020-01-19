@@ -64,7 +64,5 @@ export default class Regex extends AbstractConstraint {
                 .setParameter('value', value)
                 .build(this.options.message);
         }
-
-        return;
     }
 }

@@ -38,7 +38,5 @@ export default class Blank extends AbstractConstraint {
                 .setParameter('value', value)
                 .build(this.options.message);
         }
-
-        return;
     }
 }

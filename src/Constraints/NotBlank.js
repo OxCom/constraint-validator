@@ -21,13 +21,6 @@ export default class NotBlank extends AbstractConstraint {
     }
 
     /**
-     * @return {string[]}
-     */
-    getRequiredOptions () {
-        return [];
-    }
-
-    /**
      * Test provided value and return Error if occurs
      *
      * @param value
@@ -45,7 +38,5 @@ export default class NotBlank extends AbstractConstraint {
                 .setParameter('value', value)
                 .build(this.options.message);
         }
-
-        return;
     }
 }

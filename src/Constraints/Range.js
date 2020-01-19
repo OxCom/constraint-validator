@@ -104,7 +104,5 @@ export default class Range extends AbstractConstraint {
                 .setParameter('value', isDateObject(value) ? this.formatDateValue(value) : value)
                 .build(this.options.message_max);
         }
-
-        return;
     }
 }

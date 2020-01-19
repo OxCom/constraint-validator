@@ -119,8 +119,6 @@ export default class Country extends AbstractConstraint {
                 .setParameter('value', value)
                 .build(this.options.message);
         }
-
-        return;
     }
 
     static get MODE_ALPHA2() {

@@ -50,8 +50,6 @@ export default class Language extends AbstractConstraint {
                 .setParameter('value', value)
                 .build(this.options.message);
         }
-
-        return;
     }
 }
 

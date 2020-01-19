@@ -46,6 +46,7 @@ Choice constraints:
 - [Country](./Constraints/Country.md)
 
 Financial and other Number Constraints:
+- [CardScheme](./Constraints/CardScheme.md)
 - [Currency](./Constraints/Currency.md)
 - [Luhn](./Constraints/Luhn.md)
 - [Issn](./Constraints/Issn.md)
