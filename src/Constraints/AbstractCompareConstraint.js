@@ -18,6 +18,7 @@ export default class AbstractCompareConstraint extends AbstractConstraint {
      */
     getDefaultOptions() {
         return {
+            'strict': false,
             'message_strict': MESSAGE_STRICT,
         };
     }
@@ -26,7 +27,7 @@ export default class AbstractCompareConstraint extends AbstractConstraint {
      * @return {string[]}
      */
     getRequiredOptions() {
-        return ['value'];
+        return ['value', 'strict'];
     }
 
     /**
@@ -37,7 +38,7 @@ export default class AbstractCompareConstraint extends AbstractConstraint {
      */
     // eslint-disable-next-line no-unused-vars
     compare(value1, value2) {
-        throw new Error('The compare() was not implemented');
+        throw new Error('The compare() method was not implemented');
     }
 
     /**

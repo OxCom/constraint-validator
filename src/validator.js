@@ -1,3 +1,4 @@
+import AbstractCompareConstraint from './Constraints/AbstractCompareConstraint';
 import AbstractConstraint from './Constraints/AbstractConstraint';
 import Length             from './Constraints/Length';
 import Email              from './Constraints/Email';
@@ -42,6 +43,7 @@ import Validator          from './Validator/Validator';
 import Form               from './Validator/Form';
 
 export default {
+    AbstractCompareConstraint: AbstractCompareConstraint,
     AbstractConstraint: AbstractConstraint,
     Length: Length,
     Email: Email,

@@ -59,7 +59,7 @@ export default class AbstractConstraint {
      */
     // eslint-disable-next-line no-unused-vars
     validate(value, options) {
-        throw new Error('The validate() was not implemented');
+        throw new Error('The validate() method was not implemented');
     }
 
     /**
