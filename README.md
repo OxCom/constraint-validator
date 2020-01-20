@@ -91,6 +91,7 @@ console.log(result);
   - [Country](docs/Constraints/Country.md)
   
   Financial and other Number Constraints:
+  - [Bic](docs/Constraints/Bic.md)
   - [CardScheme](docs/Constraints/CardScheme.md)
   - [Currency](docs/Constraints/Currency.md)
   - [Issn](docs/Constraints/Issn.md)
@@ -113,7 +114,6 @@ console.log(result);
 
 ## TODO
 Investigate and add financial and other number constraints
-- Bic
 - Iban
 - Isbn
 - Callback

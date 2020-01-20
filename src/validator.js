@@ -35,6 +35,7 @@ import Locale             from './Constraints/Locale';
 import Issn               from './Constraints/Issn';
 import Luhn               from './Constraints/Luhn';
 import CardScheme         from './Constraints/CardScheme';
+import Bic                from './Constraints/Bic';
 import Validator          from './Validator/Validator';
 import Form               from './Validator/Form';
 
@@ -76,6 +77,7 @@ export default {
     Issn: Issn,
     Luhn: Luhn,
     CardScheme: CardScheme,
+    Bic: Bic,
     Validator: Validator,
     Form: Form,
 };
