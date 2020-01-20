@@ -91,6 +91,7 @@ console.log(result);
   - [Country](docs/Constraints/Country.md)
   
   Financial and other Number Constraints:
+  - [Iban](docs/Constraints/Iban.md)
   - [Bic](docs/Constraints/Bic.md)
   - [CardScheme](docs/Constraints/CardScheme.md)
   - [Currency](docs/Constraints/Currency.md)
