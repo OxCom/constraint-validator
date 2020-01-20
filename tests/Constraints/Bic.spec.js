@@ -74,6 +74,7 @@ describe('Bic', function () {
             let object = new Bic({iban_path: 'my_awesome_iban'});
 
             [
+                {bic:'BNPAGFGX', iban: ''},
                 {bic:'BNPAGFGX', iban: 'FR14 2004 1010 0505 0001 3M02 606'},
                 {bic:'BNPAPFGX', iban: 'FR14 2004 1010 0505 0001 3M02 606'},
                 {bic:'BNPATFGX', iban: 'FR14 2004 1010 0505 0001 3M02 606'},

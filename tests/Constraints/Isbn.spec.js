@@ -92,6 +92,7 @@ describe('Isbn', function () {
             let object = new Isbn();
 
             [
+                [], {}, function() {},
                 '272_3442276',
                 '272X455041',
                 '207-0546-X10',

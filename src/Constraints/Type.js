@@ -114,9 +114,6 @@ export default class Type extends AbstractConstraint {
             case TYPE_STRING:
                 result = isString(value);
                 break;
-
-            default:
-                throw new Error(`Invalid type provided: ${this.options.mode}`);
         }
 
         if (result) {

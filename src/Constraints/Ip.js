@@ -173,9 +173,6 @@ export default class Ip extends AbstractConstraint {
 
             case MODE_ALL:
                 break;
-
-            default:
-                throw new Error(`Invalid validation version provided: ${this.options.version}`);
         }
     }
 
