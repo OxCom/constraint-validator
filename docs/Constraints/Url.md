@@ -20,5 +20,5 @@ Available validation modes are:
 - ```html5```
 
 ##### trim
-type: `boolean` default: `true` 
+type: `boolean` default: `true`  
 Trim provided value.  

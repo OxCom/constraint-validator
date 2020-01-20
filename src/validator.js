@@ -32,6 +32,7 @@ import Language           from './Constraints/Language';
 import Regex              from './Constraints/Regex';
 import Range              from './Constraints/Range';
 import Locale             from './Constraints/Locale';
+import Isbn               from './Constraints/Isbn';
 import Issn               from './Constraints/Issn';
 import Luhn               from './Constraints/Luhn';
 import CardScheme         from './Constraints/CardScheme';
@@ -73,6 +74,7 @@ export default {
     Regex: Regex,
     Range: Range,
     Locale: Locale,
+    Isbn: Isbn,
     Issn: Issn,
     Luhn: Luhn,
     CardScheme: CardScheme,

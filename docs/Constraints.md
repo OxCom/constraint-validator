@@ -48,8 +48,9 @@ Choice constraints:
 Financial and other Number Constraints:
 - [CardScheme](./Constraints/CardScheme.md)
 - [Currency](./Constraints/Currency.md)
-- [Luhn](./Constraints/Luhn.md)
+- [Isbn](./Constraints/Isbn.md)
 - [Issn](./Constraints/Issn.md)
+- [Luhn](./Constraints/Luhn.md)
 
 Other constraints:
 - [Count](./Constraints/Count.md)

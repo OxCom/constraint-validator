@@ -27,6 +27,8 @@ This option is required and represents the name of the number scheme used to val
 - ```UATP```
 - ```VISA```
 
+For more information about the used schemes, see [Wikipedia: Issuer identification number (IIN)](https://en.wikipedia.org/wiki/Payment_card_number#Issuer_identification_number_.28IIN.29).
+
 ##### trim
 type: `boolean` default: `true` 
 Trim provided value.  
