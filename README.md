@@ -116,7 +116,6 @@ console.log(result);
 
 ## TODO
 Investigate and add financial and other number constraints
-- Iban
 - Callback
 - All
 

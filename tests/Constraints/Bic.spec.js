@@ -43,6 +43,7 @@ describe('Bic', function () {
             let object = new Bic();
 
             [
+                [], function() {}, {},
                 'DEUTD',
                 'ASPKAT2LXX',
                 'ASPKAT2LX',

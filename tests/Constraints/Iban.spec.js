@@ -136,6 +136,7 @@ describe('Iban', function () {
 
             [
                 'qwe', 123, 0, '0',
+                [], function() {}, {},
                 'AL47 2121 1009 0000 0002 3569 874', //Albania
                 'AD12 0001 2030 2003 5910 010', //Andorra
                 'AT61 1904 3002 3457 320', //Austria
