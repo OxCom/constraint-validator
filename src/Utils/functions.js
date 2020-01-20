@@ -1,11 +1,11 @@
-import is_numeric from 'locutus/php/var/is_numeric';
-import is_float   from 'locutus/php/var/is_float';
-import is_int     from 'locutus/php/var/is_int';
-import php_trim   from 'locutus/php/strings/trim';
+import is_numeric  from 'locutus/php/var/is_numeric';
+import is_float    from 'locutus/php/var/is_float';
+import is_int      from 'locutus/php/var/is_int';
+import php_trim    from 'locutus/php/strings/trim';
 
 /**
  * @param object
- * @return {boolean|boolean}
+ * @return {boolean}
  */
 export function isNumeric(object) {
     return is_numeric(object);
@@ -13,7 +13,7 @@ export function isNumeric(object) {
 
 /**
  * @param object
- * @return {boolean|boolean}
+ * @return {boolean}
  */
 export function isDateObject(object) {
     return Object.prototype.toString.call(object) === '[object Date]' && object instanceof Date;
@@ -70,7 +70,7 @@ export function isInt(object) {
 
 /**
  * @param object
- * @return {boolean|boolean}
+ * @return {boolean}
  */
 export function isObject(object) {
     if (Object.prototype.toString.call(object) === '[object Array]' || object === null) {
@@ -118,6 +118,7 @@ export function isIterable(object) {
 
 /**
  * @param {string} value
+ * @return {string}
  */
 export function trim(value) {
     if (typeof value !== 'string') {

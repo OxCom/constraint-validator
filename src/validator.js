@@ -36,6 +36,8 @@ import Isbn               from './Constraints/Isbn';
 import Issn               from './Constraints/Issn';
 import Luhn               from './Constraints/Luhn';
 import CardScheme         from './Constraints/CardScheme';
+import Iban               from './Constraints/Iban';
+import Bic                from './Constraints/Bic';
 import Validator          from './Validator/Validator';
 import Form               from './Validator/Form';
 
@@ -78,6 +80,8 @@ export default {
     Issn: Issn,
     Luhn: Luhn,
     CardScheme: CardScheme,
+    Iban: Iban,
+    Bic: Bic,
     Validator: Validator,
     Form: Form,
 };
