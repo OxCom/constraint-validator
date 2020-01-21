@@ -33,7 +33,7 @@ describe('Type', function () {
         {type: 'ctype_alnum', value1: '12a34', value2: '1a#23'},
         {type: 'ctype_digit', value1: '12345', value2: '12a34'},
         {type: 'ctype_alpha', value1: 'abcde', value2: 'abcd1'},
-        {type: 'ctype_cntrl', value1: "\n\r\t", value2: '\nabc'},
+        {type: 'ctype_cntrl', value1: '\n\r\t', value2: '\nabc'},
         {type: 'ctype_graph', value1: 'arf12', value2: 'abc\n'},
         {type: 'ctype_lower', value1: 'abcde', value2: 'abCDE'},
         {type: 'ctype_upper', value1: 'ABCDE', value2: 'ABcde'},
