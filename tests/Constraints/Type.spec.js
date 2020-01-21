@@ -29,6 +29,18 @@ describe('Type', function () {
         {type: 'string', value1: '', value2: parseInt('a')},
         {type: 'string', value1: 'string', value2: null},
         {type: 'string', value1: '0', value2: 0},
+        // ctype_*
+        {type: 'ctype_alnum', value1: '12a34', value2: '1a#23'},
+        {type: 'ctype_digit', value1: '12345', value2: '12a34'},
+        {type: 'ctype_alpha', value1: 'abcde', value2: 'abcd1'},
+        {type: 'ctype_cntrl', value1: "\n\r\t", value2: '\nabc'},
+        {type: 'ctype_graph', value1: 'arf12', value2: 'abc\n'},
+        {type: 'ctype_lower', value1: 'abcde', value2: 'abCDE'},
+        {type: 'ctype_upper', value1: 'ABCDE', value2: 'ABcde'},
+        {type: 'ctype_print', value1: 'arf12', value2: '\nabc'},
+        {type: 'ctype_punct', value1: '*&$()', value2: 'abc&$!'},
+        {type: 'ctype_space', value1: '\n\r\t', value2: '\nabc'},
+        {type: 'ctype_xdigit', value1: 'AB10BC99', value2: 'AR1012'},
     ];
 
     describe('#constructor()', function () {
@@ -110,6 +122,50 @@ describe('Type', function () {
 
         it('Expose constant "TYPE_STRING"', function () {
             assert.strictEqual('string', Type.TYPE_STRING);
+        });
+
+        it('Expose constant "CTYPE_ALNUM"', function () {
+            assert.strictEqual('ctype_alnum', Type.CTYPE_ALNUM);
+        });
+
+        it('Expose constant "CTYPE_ALPHA"', function () {
+            assert.strictEqual('ctype_alpha', Type.CTYPE_ALPHA);
+        });
+
+        it('Expose constant "CTYPE_CNTRL"', function () {
+            assert.strictEqual('ctype_cntrl', Type.CTYPE_CNTRL);
+        });
+
+        it('Expose constant "CTYPE_DIGIT"', function () {
+            assert.strictEqual('ctype_digit', Type.CTYPE_DIGIT);
+        });
+
+        it('Expose constant "CTYPE_GRAPH"', function () {
+            assert.strictEqual('ctype_graph', Type.CTYPE_GRAPH);
+        });
+
+        it('Expose constant "CTYPE_LOWER"', function () {
+            assert.strictEqual('ctype_lower', Type.CTYPE_LOWER);
+        });
+
+        it('Expose constant "CTYPE_PRINT"', function () {
+            assert.strictEqual('ctype_print', Type.CTYPE_PRINT);
+        });
+
+        it('Expose constant "CTYPE_PUNCT"', function () {
+            assert.strictEqual('ctype_punct', Type.CTYPE_PUNCT);
+        });
+
+        it('Expose constant "CTYPE_SPACE"', function () {
+            assert.strictEqual('ctype_space', Type.CTYPE_SPACE);
+        });
+
+        it('Expose constant "CTYPE_UPPER"', function () {
+            assert.strictEqual('ctype_upper', Type.CTYPE_UPPER);
+        });
+
+        it('Expose constant "CTYPE_XDIGIT"', function () {
+            assert.strictEqual('ctype_xdigit', Type.CTYPE_XDIGIT);
         });
     });
 

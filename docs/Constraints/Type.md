@@ -26,3 +26,16 @@ Allowed types are:
 - ```numeric```
 - ```object```
 - ```string```
+
+Also, you can use ctype_*() functions from corresponding [locutus](https://github.com/kvz/locutus) implementation:
+- ```ctype_alnum```
+- ```ctype_alpha```
+- ```ctype_cntrl```
+- ```ctype_digit```
+- ```ctype_graph```
+- ```ctype_lower```
+- ```ctype_print```
+- ```ctype_punct```
+- ```ctype_space```
+- ```ctype_upper```
+- ```ctype_xdigit```

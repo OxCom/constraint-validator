@@ -9,6 +9,12 @@ import {
     isNumeric,
     isObject, isString,
 }                         from '../Utils/functions';
+import {
+    ctype_alnum, ctype_alpha, ctype_cntrl,
+    ctype_digit, ctype_graph, ctype_lower,
+    ctype_print, ctype_punct, ctype_space,
+    ctype_upper, ctype_xdigit,
+}                         from 'locutus/php/ctype';
 import AbstractConstraint from './AbstractConstraint';
 
 const MESSAGE_INVALID = 'This value should be of type {{ type }}.';
@@ -27,6 +33,18 @@ const TYPE_NUMERIC = 'numeric';
 const TYPE_OBJECT = 'object';
 const TYPE_STRING = 'string';
 
+const CTYPE_ALNUM = 'ctype_alnum';
+const CTYPE_ALPHA = 'ctype_alpha';
+const CTYPE_CNTRL = 'ctype_cntrl';
+const CTYPE_DIGIT = 'ctype_digit';
+const CTYPE_GRAPH = 'ctype_graph';
+const CTYPE_LOWER = 'ctype_lower';
+const CTYPE_PRINT = 'ctype_print';
+const CTYPE_PUNCT = 'ctype_punct';
+const CTYPE_SPACE = 'ctype_space';
+const CTYPE_UPPER = 'ctype_upper';
+const CTYPE_XDIGIT = 'ctype_xdigit';
+
 export default class Type extends AbstractConstraint {
     /**
      * @param {{type: string, message: string}} [options]
@@ -38,6 +56,9 @@ export default class Type extends AbstractConstraint {
             TYPE_ARRAY, TYPE_DATE, TYPE_BOOL, TYPE_BOOLEAN, TYPE_FUNCTION, TYPE_FLOAT,
             TYPE_INTEGER, TYPE_NULL, TYPE_NUMERIC, TYPE_OBJECT, TYPE_STRING,
             TYPE_DOUBLE, TYPE_INT,
+            CTYPE_ALNUM, CTYPE_ALPHA, CTYPE_CNTRL, CTYPE_DIGIT, CTYPE_GRAPH,
+            CTYPE_LOWER, CTYPE_PRINT, CTYPE_PUNCT, CTYPE_SPACE, CTYPE_UPPER,
+            CTYPE_XDIGIT
         ];
 
         if (!allowed.includes(this.options.type)) {
@@ -114,6 +135,50 @@ export default class Type extends AbstractConstraint {
             case TYPE_STRING:
                 result = isString(value);
                 break;
+
+            case CTYPE_ALNUM:
+                result = ctype_alnum(value);
+                break;
+
+            case CTYPE_ALPHA:
+                result = ctype_alpha(value);
+                break;
+
+            case CTYPE_CNTRL:
+                result = ctype_cntrl(value);
+                break;
+
+            case CTYPE_DIGIT:
+                result = ctype_digit(value);
+                break;
+
+            case CTYPE_GRAPH:
+                result = ctype_graph(value);
+                break;
+
+            case CTYPE_LOWER:
+                result = ctype_lower(value);
+                break;
+
+            case CTYPE_PRINT:
+                result = ctype_print(value);
+                break;
+
+            case CTYPE_PUNCT:
+                result = ctype_punct(value);
+                break;
+
+            case CTYPE_SPACE:
+                result = ctype_space(value);
+                break;
+
+            case CTYPE_UPPER:
+                result = ctype_upper(value);
+                break;
+
+            case CTYPE_XDIGIT:
+                result = ctype_xdigit(value);
+                break;
         }
 
         if (result) {
@@ -177,5 +242,49 @@ export default class Type extends AbstractConstraint {
 
     static get TYPE_STRING() {
         return TYPE_STRING;
+    }
+
+    static get CTYPE_ALNUM() {
+        return CTYPE_ALNUM;
+    }
+
+    static get CTYPE_ALPHA() {
+        return CTYPE_ALPHA;
+    }
+
+    static get CTYPE_CNTRL() {
+        return CTYPE_CNTRL;
+    }
+
+    static get CTYPE_DIGIT() {
+        return CTYPE_DIGIT;
+    }
+
+    static get CTYPE_GRAPH() {
+        return CTYPE_GRAPH;
+    }
+
+    static get CTYPE_LOWER() {
+        return CTYPE_LOWER;
+    }
+
+    static get CTYPE_PRINT() {
+        return CTYPE_PRINT;
+    }
+
+    static get CTYPE_PUNCT() {
+        return CTYPE_PUNCT;
+    }
+
+    static get CTYPE_SPACE() {
+        return CTYPE_SPACE;
+    }
+
+    static get CTYPE_UPPER() {
+        return CTYPE_UPPER;
+    }
+
+    static get CTYPE_XDIGIT() {
+        return CTYPE_XDIGIT;
     }
 }
