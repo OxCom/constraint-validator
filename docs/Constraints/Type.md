@@ -27,7 +27,7 @@ Allowed types are:
 - ```object```
 - ```string```
 
-Also, you can use ctype_*() functions from corresponding [locutus](https://github.com/kvz/locutus) implementation:
+Also, you can use ```ctype_*()``` functions from corresponding [locutus](https://github.com/kvz/locutus) implementation:
 - ```ctype_alnum```
 - ```ctype_alpha```
 - ```ctype_cntrl```
