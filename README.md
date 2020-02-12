@@ -36,14 +36,29 @@ form
         new Length({min: 6}),
     ]);
 
-const result = form.validate({
+const errors = form.validate({
     email: 'email@example.com',
     password: '1234567',
 });
 
 // Object with list of invalid properties. Each property contains array of errors
-console.log(result);
+console.log(errors)
 ```
+
+In case of form data is not valid the ```errors``` object contains properties (related to from filed names) and array of [Error](https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Error) objects.
+```javascript
+{
+    'email': [
+        Error,
+        Error,
+    ],
+    'password': [
+        Error,
+    ]   
+}
+```
+
+
 ## Documentation
 - [Form](docs/Form.md) - form configuration
 - [Constraints](docs/Constraints.md) - list of supported constraints
