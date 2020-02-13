@@ -2,6 +2,7 @@ import { isArray }      from '../Utils/functions';
 import ViolationBuilder from '../Utils/ViolationBuilder';
 import Validator        from './Validator';
 
+const FORM_ERROR_FIELD = 'form';
 const MESSAGE_EXTRA_FIELDS = 'This form should not contain extra fields.';
 
 export default class Form {
@@ -22,6 +23,7 @@ export default class Form {
         this.violationBuilder = new ViolationBuilder();
         this.fields = {};
         this.data = {};
+        this.errors = {};
     }
 
     /**
@@ -65,50 +67,64 @@ export default class Form {
      * @return {Array}
      */
     validate(data) {
-        const errors = {};
-
+        this.errors = {};
         this.data = data;
 
         if (!this.options.extra_fields) {
-            let extra = this.hasExtraFields(data);
-            if (extra) {
-                errors['form'] = [extra];
-            }
+            this.checkExtraFields();
         }
 
-        if (Object.keys(errors).length > 0) {
-            return errors;
+        if (Object.keys(this.errors).length > 0) {
+            return this.errors;
         }
 
-        Object.keys(data).forEach((field) => {
-            const value = data[field];
+        Object.keys(this.fields).forEach((field) => {
+            const value = this.data[field];
+            const errors = this.validator.validate(value, this.fields[field].constants, {form: this});
 
-            if (typeof this.fields[field] === 'undefined') {
-                return true;
-            }
-
-            const fieldErrors = this.validator.validate(value, this.fields[field].constants, {form: this});
-
-            if (fieldErrors.length > 0) {
-                errors[field] = fieldErrors;
+            if (errors.length > 0) {
+                this.addValidationErrors(field, errors);
             }
         });
 
-        return errors;
+        return this.errors;
     }
 
     /**
-     * @param {Object} data
-     * @return {Error|undefined}
+     * @param {string} field
+     * @param {Error|Error[]} error
+     * @return {Form}
      */
-    hasExtraFields(data) {
-        for (const field of Object.keys(data)) {
+    addValidationErrors(field, error) {
+        if (!isArray(this.errors[field])) {
+            this.errors[field] = [];
+        }
+
+        if (isArray(error)) {
+            this.errors[field] = this.errors[field].concat(error);
+        } else {
+            this.errors[field].push(error);
+        }
+
+        return this;
+    }
+
+    /**
+     * @return {Form}
+     */
+    checkExtraFields() {
+        for (const field of Object.keys(this.data)) {
             if (typeof this.fields[field] === 'undefined') {
-                return this.violationBuilder.build(this.options.extra_fields_message);
+                this.addValidationErrors(
+                    FORM_ERROR_FIELD,
+                    this.violationBuilder.build(this.options.extra_fields_message)
+                );
+
+                break;
             }
         }
 
-        return;
+        return this;
     }
 
     getData() {
