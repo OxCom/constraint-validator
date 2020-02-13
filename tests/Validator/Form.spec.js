@@ -156,7 +156,7 @@ describe('Form', function () {
                 .add('email')
                 .add('password');
 
-            let e = form.validate({
+            const e = form.validate({
                 email: 'email@example.com',
                 password: '1234567',
                 ip: '8.8.8.8',
@@ -182,6 +182,20 @@ describe('Form', function () {
             });
 
             assert.strictEqual(Object.keys(e).length, 0);
+        });
+
+        it('Validation empty form data', function () {
+            const form = new Form({extra_fields: true});
+
+            form.add('email', [
+                new NotBlank(),
+                new Email(),
+                new Length({min: 17}),
+            ]);
+
+            let e = form.validate({});
+
+            assert.strictEqual(Object.keys(e).length, 1);
         });
     });
 
