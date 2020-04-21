@@ -1,5 +1,5 @@
 require('@babel/register')({
-    presets: ['@babel/preset-env'],
+    presets: ['@babel/env'],
     plugins: ['add-module-exports']
 });
 
