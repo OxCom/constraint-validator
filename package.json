@@ -7,8 +7,7 @@
         "test": "NODE_PATH=./src mocha --require ./tests/bootstrap.js ./tests/**/*.spec.js",
         "test:lint": "eslint --ext js -f stylish ./src/ ./tests/",
         "test:coverage": "nyc -s npm run test",
-        "build": "./node_modules/.bin/babel --presets minify ./src/validator.js -o ./dist/constraint-validator.js",
-        "watch": "./node_modules/.bin/babel --watch ./src/validator.js -o ./dist/constraint-validator.js",
+        "build": "rollup --config rollup.config.js",
         "report:coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov"
     },
     "repository": {
@@ -27,16 +26,19 @@
     "license": "MIT",
     "homepage": "https://github.com/OxCom/constraint-validator",
     "devDependencies": {
-        "@babel/register": "^7.9.0",
         "@babel/preset-env": "^7.9.5",
-        "@babel/cli": "^7.8.4",
+        "@babel/register": "^7.9.0",
         "babel-plugin-add-module-exports": "^1.0.2",
-        "babel-preset-minify": "^0.5.1",
         "eslint": "^6.8.0",
         "jsdom": "^15.2.1",
         "jsdom-global": "^3.0.2",
         "mocha": "^6.2.3",
-        "nyc": "^15.0.1"
+        "nyc": "^15.0.1",
+        "rollup": "^2.6.1",
+        "rollup-plugin-babel": "^4.4.0",
+        "rollup-plugin-commonjs": "^10.1.0",
+        "rollup-plugin-node-resolve": "^5.2.0",
+        "rollup-plugin-terser": "^5.3.0"
     },
     "dependencies": {
         "ipaddr.js": "^1.9.1",

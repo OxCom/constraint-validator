@@ -1,21 +1,19 @@
 import {
-    isArray,
-    isBoolean,
-    isDateObject,
-    isFloat,
-    isFunction,
-    isInt,
-    isNull,
-    isNumeric,
-    isObject, isString,
-}                         from '../Utils/functions';
-import {
-    ctype_alnum, ctype_alpha, ctype_cntrl,
-    ctype_digit, ctype_graph, ctype_lower,
-    ctype_print, ctype_punct, ctype_space,
-    ctype_upper, ctype_xdigit,
-}                         from 'locutus/php/ctype';
+    isArray, isBoolean, isDateObject, isFloat, isFunction, isInt,
+    isNull, isNumeric, isObject, isString,
+} from '../Utils/functions';
 import AbstractConstraint from './AbstractConstraint';
+import ctype_alnum from "locutus/php/ctype/ctype_alnum";
+import ctype_alpha from "locutus/php/ctype/ctype_alpha";
+import ctype_cntrl from "locutus/php/ctype/ctype_cntrl";
+import ctype_digit from "locutus/php/ctype/ctype_digit";
+import ctype_graph from "locutus/php/ctype/ctype_graph";
+import ctype_lower from "locutus/php/ctype/ctype_lower";
+import ctype_print from "locutus/php/ctype/ctype_print";
+import ctype_punct from "locutus/php/ctype/ctype_punct";
+import ctype_space from "locutus/php/ctype/ctype_space";
+import ctype_upper from "locutus/php/ctype/ctype_upper";
+import ctype_xdigit from "locutus/php/ctype/ctype_xdigit";
 
 const MESSAGE_INVALID = 'This value should be of type {{ type }}.';
 
