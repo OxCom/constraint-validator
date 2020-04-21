@@ -1,6 +1,7 @@
 {
     "name": "constraint-validator",
     "main": "dist/constraint-validator.js",
+    "exports": "dist/constraint-validator.js",
     "version": "1.0.5",
     "description": "Constraint validation tool",
     "scripts": {

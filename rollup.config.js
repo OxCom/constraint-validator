@@ -8,7 +8,7 @@ export default {
     output: [
         {
             file: './dist/constraint-validator.js',
-            format: 'es',
+            format: 'umd',
             name: 'constraint-validator',
             plugins: [ terser() ]
         }
