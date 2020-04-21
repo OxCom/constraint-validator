@@ -1,12 +1,8 @@
 import AbstractConstraint  from './AbstractConstraint';
 import { trim } from '../Utils/functions';
+import list from '../Resources/currencies';
 
 const MESSAGE_INVALID = 'This value is not a valid currency.';
-
-/**
- * @type {array}
- */
-const list = require('../Resources/currencies');
 
 export default class Currency extends AbstractConstraint {
     /**

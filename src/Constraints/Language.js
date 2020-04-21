@@ -1,12 +1,8 @@
 import AbstractConstraint  from './AbstractConstraint';
 import { trim } from '../Utils/functions';
+import list from '../Resources/languages';
 
 const MESSAGE_INVALID = 'This value is not a valid language.';
-
-/**
- * @type {array}
- */
-const list = require('../Resources/languages');
 
 export default class Language extends AbstractConstraint {
     /**

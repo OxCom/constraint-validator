@@ -1,4 +1,4 @@
-[
+export default [
     "af",
     "af_NA",
     "af_ZA",

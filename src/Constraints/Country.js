@@ -1,16 +1,12 @@
 import AbstractConstraint  from './AbstractConstraint';
 import { isNumeric, trim } from '../Utils/functions';
+import list from '../Resources/countries';
 
 const MESSAGE_INVALID = 'This value is not a valid country.';
 
 const MODE_ALPHA2 = 'alpha2';
 const MODE_ALPHA3 = 'alpha3';
 const MODE_NUMERIC = 'numeric';
-
-/**
- * @type {array}
- */
-const list = require('../Resources/countries');
 
 /**
  * @param {string} value

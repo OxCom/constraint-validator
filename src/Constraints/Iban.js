@@ -3,10 +3,10 @@ import { trim }           from '../Utils/functions';
 import ord                from 'locutus/php/strings/ord';
 import ctype_upper        from 'locutus/php/ctype/ctype_upper';
 import str_split          from 'locutus/php/strings/str_split';
+import list               from '../Resources/countries';
 
 const MESSAGE_INVALID = 'This is not a valid International Bank Account Number (IBAN).';
 
-const list = require('../Resources/countries');
 const rules = {
     'AD': /^AD\d{2}\d{4}\d{4}[\dA-Z]{12}$/, // Andorra
     'AE': /^AE\d{2}\d{3}\d{16}$/, // United Arab Emirates

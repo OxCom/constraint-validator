@@ -4,7 +4,7 @@ import LocaleDetector   from '../Utils/LocaleDetector';
 const detector = new LocaleDetector();
 
 export default class AbstractConstraint {
-    constructor(options) {
+    constructor(options = {}) {
         this.options = {
             ...this.getDefaultOptions(),
             ...options,

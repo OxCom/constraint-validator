@@ -1,10 +1,10 @@
 import AbstractConstraint from './AbstractConstraint';
-import { isString, trim } from '../Utils/functions';
+import {isString, trim} from '../Utils/functions';
+import list from '../Resources/countries';
 
 const MESSAGE_INVALID = 'This is not a valid Business Identifier Code (BIC).';
 const MESSAGE_WITH_IBAN = 'This Business Identifier Code (BIC) is not associated with IBAN {{ iban }}.';
 
-const list = require('../Resources/countries');
 const BIC_MAP = {
     // Reference: https://www.ecbs.org/iban/france-bank-account-number.html
     'GF': 'FR', // French Guiana

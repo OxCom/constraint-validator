@@ -1,13 +1,9 @@
 import AbstractConstraint from './AbstractConstraint';
 import { trim }           from '../Utils/functions';
 import LocaleDetector     from '../Utils/LocaleDetector';
+import list               from '../Resources/locales';
 
 const MESSAGE_INVALID = 'This value is not a valid locale.';
-
-/**
- * @type {array}
- */
-const list = require('../Resources/locales');
 
 export default class Locale extends AbstractConstraint {
     /**

@@ -7,11 +7,10 @@ module.exports = {
 
     output: {
         path: path.resolve('dist'),
-        filename: 'validator.js',
-        library: 'validator',
-        libraryTarget: 'umd',
-        libraryExport: 'default',
-        umdNamedDefine: true
+        filename: 'constraint-validator.js',
+        library: 'constraint-validator',
+        libraryTarget: 'commonjs-module',
+        libraryExport: 'default'
     },
 
     module: {
