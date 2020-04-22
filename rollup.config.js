@@ -3,10 +3,6 @@ import resolve from 'rollup-plugin-node-resolve';
 import commonJS from 'rollup-plugin-commonjs';
 import babel from 'rollup-plugin-babel';
 
-// "main": "dist/how-long-till-lunch.cjs.js",
-//     "module": "dist/how-long-till-lunch.esm.js",
-//     "browser": "dist/how-long-till-lunch.umd.js",
-
 export default {
     input: './src/validator.js',
     output: [
