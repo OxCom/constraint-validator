@@ -12,7 +12,7 @@ Validation constraints inspired by [Symfony Constraints](https://symfony.com/doc
 
 ## Install
 ```bash
-npm i constraint-validator
+npm i constraint-validator --save
 ```
 
 ## Basic usage
