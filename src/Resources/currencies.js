@@ -289,4 +289,4 @@ export default [
     'ZWD',
     'ZWL',
     'ZWR'
-]
+];

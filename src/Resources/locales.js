@@ -593,4 +593,4 @@ export default [
     'zh_TW',
     'zu',
     'zu_ZA'
-]
+];

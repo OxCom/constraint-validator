@@ -190,4 +190,4 @@ export default [
     'YO',
     'ZA',
     'ZU'
-]
+];
