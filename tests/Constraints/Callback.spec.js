@@ -30,7 +30,7 @@ describe('Callback', function () {
     describe('#validate()', function () {
         it('is valid', function () {
             const object = new Callback({
-                callback: (value, options) => true
+                callback: () => true
             });
 
             ['', null, parseInt('a'), undefined, 'qwe', 123, 0, '0']
@@ -43,7 +43,7 @@ describe('Callback', function () {
 
         it('is not valid with undefined return', function () {
             const object = new Callback({
-                callback: (value, options) => undefined
+                callback: () => undefined
             });
 
             ['', null, parseInt('a'), undefined, 'qwe', 123, 0, '0']
@@ -56,7 +56,7 @@ describe('Callback', function () {
 
         it('is not valid', function () {
             const object = new Callback({
-                callback: (value, options) => false
+                callback: () => false
             });
 
             ['', null, parseInt('a'), undefined, 'qwe', 123, 0, '0']
