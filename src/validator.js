@@ -30,6 +30,7 @@ import Timezone                  from './Constraints/Timezone';
 import DivisibleBy               from './Constraints/DivisibleBy';
 import Ip                        from './Constraints/Ip';
 import Language                  from './Constraints/Language';
+import Callback                  from './Constraints/Callback';
 import Regex                     from './Constraints/Regex';
 import Range                     from './Constraints/Range';
 import Locale                    from './Constraints/Locale';
@@ -84,6 +85,7 @@ export default {
     CardScheme: CardScheme,
     Iban: Iban,
     Bic: Bic,
+    Callback: Callback,
     Validator: Validator,
     Form: Form,
 };

@@ -29,7 +29,7 @@ export default class Form {
     /**
      * @param {string} field
      * @param {AbstractConstraint[]} [constants]
-     * @param {Object} [options] - not in use
+     * @param {Object} [options] Specific options for current field
      *
      * @return {Form}
      */
@@ -54,7 +54,7 @@ export default class Form {
             constants: isArray(constants) ? constants : [],
             options: {
                 ...{},
-                options,
+                ...options,
             },
         };
 
@@ -63,10 +63,11 @@ export default class Form {
 
     /**
      * @param {Object} data
+     * @param {Object} [options]
      *
      * @return {Array}
      */
-    validate(data = {}) {
+    validate(data = {}, options = {}) {
         this.errors = {};
         this.data   = data;
 
@@ -79,8 +80,17 @@ export default class Form {
         }
 
         Object.keys(this.fields).forEach((field) => {
+            // pass custom validation options
+            const vOptions = {
+                ...options,
+                ...{
+                    field: this.fields[field].options,
+                    form: this
+                }
+            };
+
             const value  = this.data[field];
-            const errors = this.validator.validate(value, this.fields[field].constants, {form: this});
+            const errors = this.validator.validate(value, this.fields[field].constants, vOptions);
 
             if (errors.length > 0) {
                 this.addValidationErrors(field, errors);

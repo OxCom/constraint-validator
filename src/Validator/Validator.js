@@ -7,7 +7,7 @@ export default class Validator {
      *
      * @param value
      * @param {Array} constraints
-     * @param {{form: Object}} [options]
+     * @param {{form: Object, field: Object}} [options]
      *
      * @return {Error[]}
      */

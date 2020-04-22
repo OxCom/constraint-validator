@@ -1,4 +1,5 @@
 import { Form, NotBlank, Email, Ip, Length } from '../../src/validator';
+import Callback                              from '../../src/Constraints/Callback';
 
 const assert = require('assert');
 
@@ -196,6 +197,26 @@ describe('Form', function () {
             let e = form.validate({});
 
             assert.strictEqual(Object.keys(e).length, 1);
+        });
+
+        it('Validation with custom options', function () {
+            const form         = new Form({extra_fields: true});
+            const extraOptions = {test: 'success'};
+            const username     = 'awesome';
+
+            form.add('username', [
+                new Callback({
+                    callback: (v, o) => {
+                        return v === username
+                            && typeof o.form !== 'undefined'
+                            && o.test === 'success';
+                    }
+                }),
+            ]);
+
+            let e = form.validate({username: username}, extraOptions);
+
+            assert.strictEqual(Object.keys(e).length, 0);
         });
     });
 

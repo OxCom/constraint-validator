@@ -116,6 +116,7 @@ In case of form data is not valid the ```errors``` object contains properties (r
   
   Other constraints:
   - [Count](docs/Constraints/Count.md)
+  - [Callback](docs/Constraints/Callback.md)
 
 ## Dependencies
 - [locutus](https://github.com/kvz/locutus) - JavaScript implementation of PHP functions
@@ -131,7 +132,6 @@ In case of form data is not valid the ```errors``` object contains properties (r
 
 ## TODO
 Investigate and add financial and other number constraints
-- Callback
 - All
 
 Investigate [DayJS](https://github.com/iamkun/dayjs) as replacements: find a way to validate timezones.

@@ -56,6 +56,7 @@ Financial and other Number Constraints:
 
 Other constraints:
 - [Count](./Constraints/Count.md)
+- [Callback](./Constraints/Callback.md)
 
 ## Create custom constraint
 
