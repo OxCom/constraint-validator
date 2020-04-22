@@ -1,11 +1,11 @@
-import AbstractConstraint  from './AbstractConstraint';
-import { isNumeric, trim } from '../Utils/functions';
+import AbstractConstraint from './AbstractConstraint';
+import {isNumeric, trim}  from '../Utils/functions';
 
-const MESSAGE_INVALID = 'This value is neither a valid ISBN-10 nor a valid ISBN-13.';
+const MESSAGE_INVALID    = 'This value is neither a valid ISBN-10 nor a valid ISBN-13.';
 const MESSAGE_INVALID_10 = 'This value is not a valid ISBN-10.';
 const MESSAGE_INVALID_13 = 'This value is not a valid ISBN-13.';
 
-const MODE_ALL = null;
+const MODE_ALL     = null;
 const MODE_ISBN_10 = 'isbn10';
 const MODE_ISBN_13 = 'isbn13';
 
@@ -57,7 +57,7 @@ export default class Isbn extends AbstractConstraint {
     /**
      * @param {{message: string, trim: boolean, message: string, message_isbn10: string, message_isbn13: string}} [options]
      */
-    constructor(options) {
+    constructor(options = {}) {
         super(options);
 
         const allowed = [MODE_ALL, MODE_ISBN_10, MODE_ISBN_13];

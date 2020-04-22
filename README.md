@@ -134,3 +134,5 @@ Investigate and add financial and other number constraints
 - Callback
 - All
 
+Investigate [DayJS](https://github.com/iamkun/dayjs) as replacements: find a way to validate timezones.
+

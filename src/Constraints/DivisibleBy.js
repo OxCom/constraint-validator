@@ -1,14 +1,14 @@
-import AbstractConstraint           from './AbstractConstraint';
-import { isNumeric } from '../Utils/functions';
+import AbstractConstraint from './AbstractConstraint';
+import {isNumeric}        from '../Utils/functions';
 
-const MESSAGE_INVALID = 'This value should be a multiple of {{ compared_value }}.';
+const MESSAGE_INVALID      = 'This value should be a multiple of {{ compared_value }}.';
 const MESSAGE_INVALID_TYPE = 'This values has different types. Given type is "{{ current_type }}"; Expected type is "{{ expected_type }}".';
 
 export default class DivisibleBy extends AbstractConstraint {
     /**
      * @param {{message: string, message_type: string, value: number}} [options]
      */
-    constructor(options) {
+    constructor(options = {}) {
         super(options);
 
         if (!this.options.value || !isNumeric(this.options.value)) {

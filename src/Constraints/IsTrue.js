@@ -6,7 +6,7 @@ export default class IsTrue extends AbstractConstraint {
     /**
      * @param {{message: string}} [options]
      */
-    constructor(options) {
+    constructor(options = {}) {
         super(options);
     }
 

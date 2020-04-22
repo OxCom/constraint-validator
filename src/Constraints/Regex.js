@@ -1,5 +1,5 @@
 import AbstractConstraint from './AbstractConstraint';
-import { trim }           from '../Utils/functions';
+import {trim}             from '../Utils/functions';
 
 const MESSAGE_INVALID = 'This value is not valid.';
 
@@ -7,7 +7,7 @@ export default class Regex extends AbstractConstraint {
     /**
      * @param {{message: string, trim: boolean, match: boolean, pattern: string}} [options]
      */
-    constructor(options) {
+    constructor(options = {}) {
         super(options);
 
         if (typeof this.options.pattern !== 'string' && !(this.options.pattern instanceof RegExp)) {

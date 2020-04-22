@@ -1,14 +1,14 @@
 import AbstractConstraint from './AbstractConstraint';
-import { trim }           from '../Utils/functions';
+import {trim}             from '../Utils/functions';
 
 const MESSAGE_INVALID = 'This value is not a valid ISSN.';
-const ISSN_LENGTH = 8;
+const ISSN_LENGTH     = 8;
 
 export default class Issn extends AbstractConstraint {
     /**
      * @param {{message: string, trim: boolean, case_sensitive: boolean, hyphen: boolean}} [options]
      */
-    constructor(options) {
+    constructor(options = {}) {
         super(options);
     }
 
@@ -36,7 +36,7 @@ export default class Issn extends AbstractConstraint {
             return;
         }
 
-        value = this.options.trim ? trim(value) : value;
+        value         = this.options.trim ? trim(value) : value;
         let canonical = value;
 
         if (canonical.length > 4 && canonical.charAt(4) === '-') {

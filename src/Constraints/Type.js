@@ -1,53 +1,53 @@
 import {
     isArray, isBoolean, isDateObject, isFloat, isFunction, isInt,
     isNull, isNumeric, isObject, isString,
-} from '../Utils/functions';
+}                         from '../Utils/functions';
 import AbstractConstraint from './AbstractConstraint';
-import ctype_alnum from 'locutus/php/ctype/ctype_alnum';
-import ctype_alpha from 'locutus/php/ctype/ctype_alpha';
-import ctype_cntrl from 'locutus/php/ctype/ctype_cntrl';
-import ctype_digit from 'locutus/php/ctype/ctype_digit';
-import ctype_graph from 'locutus/php/ctype/ctype_graph';
-import ctype_lower from 'locutus/php/ctype/ctype_lower';
-import ctype_print from 'locutus/php/ctype/ctype_print';
-import ctype_punct from 'locutus/php/ctype/ctype_punct';
-import ctype_space from 'locutus/php/ctype/ctype_space';
-import ctype_upper from 'locutus/php/ctype/ctype_upper';
-import ctype_xdigit from 'locutus/php/ctype/ctype_xdigit';
+import ctype_alnum        from 'locutus/php/ctype/ctype_alnum';
+import ctype_alpha        from 'locutus/php/ctype/ctype_alpha';
+import ctype_cntrl        from 'locutus/php/ctype/ctype_cntrl';
+import ctype_digit        from 'locutus/php/ctype/ctype_digit';
+import ctype_graph        from 'locutus/php/ctype/ctype_graph';
+import ctype_lower        from 'locutus/php/ctype/ctype_lower';
+import ctype_print        from 'locutus/php/ctype/ctype_print';
+import ctype_punct        from 'locutus/php/ctype/ctype_punct';
+import ctype_space        from 'locutus/php/ctype/ctype_space';
+import ctype_upper        from 'locutus/php/ctype/ctype_upper';
+import ctype_xdigit       from 'locutus/php/ctype/ctype_xdigit';
 
 const MESSAGE_INVALID = 'This value should be of type {{ type }}.';
 
-const TYPE_ARRAY = 'array';
-const TYPE_DATE = 'date';
-const TYPE_BOOL = 'bool';
-const TYPE_BOOLEAN = 'boolean';
+const TYPE_ARRAY    = 'array';
+const TYPE_DATE     = 'date';
+const TYPE_BOOL     = 'bool';
+const TYPE_BOOLEAN  = 'boolean';
 const TYPE_FUNCTION = 'function';
-const TYPE_FLOAT = 'float';
-const TYPE_DOUBLE = 'double';
-const TYPE_INT = 'int';
-const TYPE_INTEGER = 'integer';
-const TYPE_NULL = 'null';
-const TYPE_NUMERIC = 'numeric';
-const TYPE_OBJECT = 'object';
-const TYPE_STRING = 'string';
+const TYPE_FLOAT    = 'float';
+const TYPE_DOUBLE   = 'double';
+const TYPE_INT      = 'int';
+const TYPE_INTEGER  = 'integer';
+const TYPE_NULL     = 'null';
+const TYPE_NUMERIC  = 'numeric';
+const TYPE_OBJECT   = 'object';
+const TYPE_STRING   = 'string';
 
-const CTYPE_ALNUM = 'ctype_alnum';
-const CTYPE_ALPHA = 'ctype_alpha';
-const CTYPE_CNTRL = 'ctype_cntrl';
-const CTYPE_DIGIT = 'ctype_digit';
-const CTYPE_GRAPH = 'ctype_graph';
-const CTYPE_LOWER = 'ctype_lower';
-const CTYPE_PRINT = 'ctype_print';
-const CTYPE_PUNCT = 'ctype_punct';
-const CTYPE_SPACE = 'ctype_space';
-const CTYPE_UPPER = 'ctype_upper';
+const CTYPE_ALNUM  = 'ctype_alnum';
+const CTYPE_ALPHA  = 'ctype_alpha';
+const CTYPE_CNTRL  = 'ctype_cntrl';
+const CTYPE_DIGIT  = 'ctype_digit';
+const CTYPE_GRAPH  = 'ctype_graph';
+const CTYPE_LOWER  = 'ctype_lower';
+const CTYPE_PRINT  = 'ctype_print';
+const CTYPE_PUNCT  = 'ctype_punct';
+const CTYPE_SPACE  = 'ctype_space';
+const CTYPE_UPPER  = 'ctype_upper';
 const CTYPE_XDIGIT = 'ctype_xdigit';
 
 export default class Type extends AbstractConstraint {
     /**
      * @param {{type: string, message: string}} [options]
      */
-    constructor(options) {
+    constructor(options = {}) {
         super(options);
 
         const allowed = [

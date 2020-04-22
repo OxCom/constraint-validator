@@ -6,14 +6,14 @@ export default class NotBlank extends AbstractConstraint {
     /**
      * @param {{message: string, allow_null: boolean}} [options]
      */
-    constructor (options) {
+    constructor(options = {}) {
         super(options);
     }
 
     /**
      * @return {{min: null, max: null, message_mix: string, message_max: string, message_exact: string}}
      */
-    getDefaultOptions () {
+    getDefaultOptions() {
         return {
             'message': MESSAGE_INVALID,
             'allow_null': false
@@ -27,7 +27,7 @@ export default class NotBlank extends AbstractConstraint {
      *
      * @return {Error|undefined}
      */
-    validate (value) {
+    validate(value) {
         if (typeof value === 'string' && value.length === 0
             || typeof value !== 'string' && typeof value !== 'object' && isNaN(value)
             || typeof value === 'undefined'

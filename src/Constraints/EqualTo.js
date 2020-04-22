@@ -1,5 +1,5 @@
 import AbstractCompareConstraint from './AbstractCompareConstraint';
-import { isDateObject }          from '../Utils/functions';
+import {isDateObject}            from '../Utils/functions';
 
 const MESSAGE_EQ = 'This value should be equal to {{ compared_value }}.';
 

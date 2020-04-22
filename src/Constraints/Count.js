@@ -1,16 +1,16 @@
 import AbstractConstraint from './AbstractConstraint';
-import { isIterable }     from '../Utils/functions';
+import {isIterable}       from '../Utils/functions';
 
 const MESSAGE_INVALID = 'Provided value should be countable, "{{ type }}" given.';
-const MESSAGE_MAX = 'This collection should contain {{ limit }} elements or less.';
-const MESSAGE_MIN = 'This collection should contain {{ limit }} elements or more.';
-const MESSAGE_EXACT = 'This collection should contain exactly {{ limit }} elements.';
+const MESSAGE_MAX     = 'This collection should contain {{ limit }} elements or less.';
+const MESSAGE_MIN     = 'This collection should contain {{ limit }} elements or more.';
+const MESSAGE_EXACT   = 'This collection should contain exactly {{ limit }} elements.';
 
 export default class Count extends AbstractConstraint {
     /**
      * @param {{max: number, min: number, message_min: string, message_max: string, message_exact: string}} options
      */
-    constructor(options) {
+    constructor(options = {}) {
         super(options);
 
         this.options.min = parseInt(this.options.min, 10);

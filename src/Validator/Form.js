@@ -1,15 +1,15 @@
-import { isArray }      from '../Utils/functions';
+import {isArray}        from '../Utils/functions';
 import ViolationBuilder from '../Utils/ViolationBuilder';
 import Validator        from './Validator';
 
-const FORM_ERROR_FIELD = 'form';
+const FORM_ERROR_FIELD     = 'form';
 const MESSAGE_EXTRA_FIELDS = 'This form should not contain extra fields.';
 
 export default class Form {
     /**
      * @param {{extra_fields: boolean}} [options]
      */
-    constructor(options) {
+    constructor(options = {}) {
         this.options = {
             ...{
                 // trigger error in form data contains fields that were not described in a form
@@ -19,11 +19,11 @@ export default class Form {
             ...options
         };
 
-        this.validator = new Validator();
+        this.validator        = new Validator();
         this.violationBuilder = new ViolationBuilder();
-        this.fields = {};
-        this.data = {};
-        this.errors = {};
+        this.fields           = {};
+        this.data             = {};
+        this.errors           = {};
     }
 
     /**
@@ -33,7 +33,7 @@ export default class Form {
      *
      * @return {Form}
      */
-    add(field, constants, options) {
+    add(field, constants, options = {}) {
         if (typeof field !== 'string') {
             throw new Error(`The field should be type of "string", "${typeof field}" given.`);
         }
@@ -66,9 +66,9 @@ export default class Form {
      *
      * @return {Array}
      */
-    validate(data) {
+    validate(data = {}) {
         this.errors = {};
-        this.data = data;
+        this.data   = data;
 
         if (!this.options.extra_fields) {
             this.checkExtraFields();
@@ -79,7 +79,7 @@ export default class Form {
         }
 
         Object.keys(this.fields).forEach((field) => {
-            const value = this.data[field];
+            const value  = this.data[field];
             const errors = this.validator.validate(value, this.fields[field].constants, {form: this});
 
             if (errors.length > 0) {

@@ -1,5 +1,5 @@
 import AbstractConstraint from './AbstractConstraint';
-import { isDateObject } from '../Utils/functions';
+import {isDateObject}     from '../Utils/functions';
 
 const MESSAGE_STRICT = 'This values has different types. Given type is {{ value_type }}; Expected type is {{ compared_type }}.';
 
@@ -7,7 +7,7 @@ export default class AbstractCompareConstraint extends AbstractConstraint {
     /**
      * @param {{value: null, message_strict: string, strict: boolean, locale_string: string, locale_options: object}} options
      */
-    constructor(options) {
+    constructor(options = {}) {
         super(options);
 
         this.options.strict = !!this.options.strict;
@@ -67,7 +67,7 @@ export default class AbstractCompareConstraint extends AbstractConstraint {
         }
 
         if (!this.compare(value, compareValue)) {
-            value = isDateObject(value) ? this.formatDateValue(value) : value;
+            value        = isDateObject(value) ? this.formatDateValue(value) : value;
             compareValue = isDateObject(compareValue) ? this.formatDateValue(compareValue) : compareValue;
 
             return this

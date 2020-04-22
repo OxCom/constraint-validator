@@ -1,15 +1,15 @@
 import AbstractConstraint from './AbstractConstraint';
-import { trim }           from '../Utils/functions';
+import {trim}             from '../Utils/functions';
 
-const MESSAGE_MAX = 'This value is too long. It should have {{ limit }} character(s) or less.';
-const MESSAGE_MIN = 'This value is too short. It should have {{ limit }} character(s) or more.';
+const MESSAGE_MAX   = 'This value is too long. It should have {{ limit }} character(s) or less.';
+const MESSAGE_MIN   = 'This value is too short. It should have {{ limit }} character(s) or more.';
 const MESSAGE_EXACT = 'This value should have exactly {{ limit }} character(s).';
 
 export default class Length extends AbstractConstraint {
     /**
      * @param {{min: number, max: number, message_min: string, message_max: string, message_exact: string, trim: boolean}} options
      */
-    constructor(options) {
+    constructor(options = {}) {
         super(options);
 
         this.options.min = parseInt(this.options.min, 10);

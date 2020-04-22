@@ -1,6 +1,6 @@
-import AbstractConstraint  from './AbstractConstraint';
-import { trim } from '../Utils/functions';
-import list from '../Resources/currencies';
+import AbstractConstraint from './AbstractConstraint';
+import {trim}             from '../Utils/functions';
+import list               from '../Resources/currencies';
 
 const MESSAGE_INVALID = 'This value is not a valid currency.';
 
@@ -10,7 +10,7 @@ export default class Currency extends AbstractConstraint {
      *
      * @param {{message: string, trim: boolean}} [options]
      */
-    constructor(options) {
+    constructor(options = {}) {
         super(options);
     }
 

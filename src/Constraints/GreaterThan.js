@@ -1,5 +1,5 @@
 import AbstractCompareConstraint from './AbstractCompareConstraint';
-import { isDateObject }          from '../Utils/functions';
+import {isDateObject}            from '../Utils/functions';
 
 const MESSAGE_GT = 'This value should be greater than {{ compared_value }}.';
 

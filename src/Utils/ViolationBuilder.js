@@ -1,4 +1,4 @@
-import { isArray, isFunction, isNull, isObject } from './functions';
+import {isArray, isFunction, isNull, isObject} from './functions';
 
 export default class ViolationBuilder {
     constructor() {

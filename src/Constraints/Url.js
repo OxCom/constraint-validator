@@ -1,11 +1,11 @@
 import AbstractConstraint from './AbstractConstraint';
-import { trim }           from '../Utils/functions';
+import {trim}             from '../Utils/functions';
 
 const MESSAGE_INVALID = 'This value is not a valid URL.';
 
-const MODE_REGEXP = 'regexp';
+const MODE_REGEXP  = 'regexp';
 const MODE_URL_API = 'url_api';
-const MODE_HTML5 = 'html5';
+const MODE_HTML5   = 'html5';
 
 /**
  * @param {string} value

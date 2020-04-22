@@ -18,7 +18,7 @@ export default class AbstractConstraint {
             });
 
         // @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleDateString
-        this.locale_string = this.options.locale_string || detector.getUserLocale();
+        this.locale_string  = this.options.locale_string || detector.getUserLocale();
         this.locale_options = this.options.locale_options || {};
 
         this.violationBuilder = new ViolationBuilder();
@@ -71,9 +71,9 @@ export default class AbstractConstraint {
      */
     isEmptyValue(value) {
         return typeof value === 'string' && value.length === 0
-               || typeof value !== 'string' && typeof value !== 'object' && typeof value !== 'function' && isNaN(value)
-               || value === null
-               || typeof value === 'undefined';
+            || typeof value !== 'string' && typeof value !== 'object' && typeof value !== 'function' && isNaN(value)
+            || value === null
+            || typeof value === 'undefined';
     }
 
     /**

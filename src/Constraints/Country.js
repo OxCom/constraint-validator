@@ -1,11 +1,11 @@
-import AbstractConstraint  from './AbstractConstraint';
-import { isNumeric, trim } from '../Utils/functions';
-import list from '../Resources/countries';
+import AbstractConstraint from './AbstractConstraint';
+import {isNumeric, trim}  from '../Utils/functions';
+import list               from '../Resources/countries';
 
 const MESSAGE_INVALID = 'This value is not a valid country.';
 
-const MODE_ALPHA2 = 'alpha2';
-const MODE_ALPHA3 = 'alpha3';
+const MODE_ALPHA2  = 'alpha2';
+const MODE_ALPHA3  = 'alpha3';
 const MODE_NUMERIC = 'numeric';
 
 /**
@@ -62,7 +62,7 @@ export default class Country extends AbstractConstraint {
      *
      * @param {{message: string, mode: string, trim: boolean}} [options]
      */
-    constructor(options) {
+    constructor(options = {}) {
         super(options);
 
         const allowed = [MODE_ALPHA2, MODE_ALPHA3, MODE_NUMERIC];

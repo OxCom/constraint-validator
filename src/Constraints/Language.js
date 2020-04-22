@@ -1,6 +1,6 @@
-import AbstractConstraint  from './AbstractConstraint';
-import { trim } from '../Utils/functions';
-import list from '../Resources/languages';
+import AbstractConstraint from './AbstractConstraint';
+import {trim}             from '../Utils/functions';
+import list               from '../Resources/languages';
 
 const MESSAGE_INVALID = 'This value is not a valid language.';
 
@@ -10,7 +10,7 @@ export default class Language extends AbstractConstraint {
      *
      * @param {{message: string, trim: boolean}} [options]
      */
-    constructor(options) {
+    constructor(options = {}) {
         super(options);
     }
 

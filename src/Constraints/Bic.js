@@ -1,8 +1,8 @@
 import AbstractConstraint from './AbstractConstraint';
-import {isString, trim} from '../Utils/functions';
-import list from '../Resources/countries';
+import {isString, trim}   from '../Utils/functions';
+import list               from '../Resources/countries';
 
-const MESSAGE_INVALID = 'This is not a valid Business Identifier Code (BIC).';
+const MESSAGE_INVALID   = 'This is not a valid Business Identifier Code (BIC).';
 const MESSAGE_WITH_IBAN = 'This Business Identifier Code (BIC) is not associated with IBAN {{ iban }}.';
 
 const BIC_MAP = {
@@ -40,7 +40,7 @@ export default class Bic extends AbstractConstraint {
     /**
      * @param {{message: string, message_iban: string, iban_path: string, trim: boolean}} [options]
      */
-    constructor(options) {
+    constructor(options = {}) {
         super(options);
     }
 
@@ -102,7 +102,7 @@ export default class Bic extends AbstractConstraint {
             }
 
             const ibanCode = iban.substring(0, 2);
-            const bicCode = canonical.substring(4, 6);
+            const bicCode  = canonical.substring(4, 6);
 
             if (ibanCode === bicCode || ibanCode === BIC_MAP[bicCode]) {
                 return;

@@ -1,16 +1,16 @@
 import AbstractConstraint from './AbstractConstraint';
-import { isArray }        from '../Utils/functions';
+import {isArray}          from '../Utils/functions';
 
-const MESSAGE_INVALID = 'The value you selected is not a valid choice.';
-const MESSAGE_MIN = 'You must select at least {{ limit }} choices.';
-const MESSAGE_MAX = 'You must select at most {{ limit }} choices.';
+const MESSAGE_INVALID  = 'The value you selected is not a valid choice.';
+const MESSAGE_MIN      = 'You must select at least {{ limit }} choices.';
+const MESSAGE_MAX      = 'You must select at most {{ limit }} choices.';
 const MESSAGE_MULTIPLE = 'One or more of the given values is invalid.';
 
 export default class Choice extends AbstractConstraint {
     /**
      * @param {{message: string, multiple: boolean, min: int, max: int, choices: array, message_min: string, message_max: string, message_multiple: string}} [options]
      */
-    constructor(options) {
+    constructor(options = {}) {
         super(options);
 
         if (!this.options.choices || !isArray(this.options.choices)) {
@@ -73,7 +73,7 @@ export default class Choice extends AbstractConstraint {
         }
 
         if (this.options.multiple) {
-            for (let i = 0; i < value.length; i++ ) {
+            for (let i = 0; i < value.length; i++) {
                 if (!this.options.choices.includes(value[i])) {
                     return this
                         .getViolationBuilder()

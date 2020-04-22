@@ -1,6 +1,6 @@
-import AbstractConstraint            from './AbstractConstraint';
-import { isDateObject, trim }        from '../Utils/functions';
-import { DateTime as LuxonDateTime } from 'luxon';
+import AbstractConstraint          from './AbstractConstraint';
+import {isDateObject, trim}        from '../Utils/functions';
+import {DateTime as LuxonDateTime} from 'luxon';
 
 const MESSAGE_INVALID = 'This value is not a valid datetime.';
 

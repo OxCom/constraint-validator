@@ -1,15 +1,15 @@
-import AbstractConstraint          from './AbstractConstraint';
-import { isNumeric, isDateObject } from '../Utils/functions';
+import AbstractConstraint        from './AbstractConstraint';
+import {isNumeric, isDateObject} from '../Utils/functions';
 
-const MESSAGE_MAX = 'This value should be {{ limit }} or less.';
-const MESSAGE_MIN = 'This value should be {{ limit }} or more.';
+const MESSAGE_MAX     = 'This value should be {{ limit }} or less.';
+const MESSAGE_MIN     = 'This value should be {{ limit }} or more.';
 const MESSAGE_INVALID = 'This value should be between {{ min }} and {{ max }}.';
 
 export default class Range extends AbstractConstraint {
     /**
      * @param {{min: null, max: null, message_min: string, message_max: string, message: string}} options
      */
-    constructor(options) {
+    constructor(options = {}) {
         super(options);
 
         const hasMin = !(typeof this.options.min === 'undefined' || this.options.min === null);

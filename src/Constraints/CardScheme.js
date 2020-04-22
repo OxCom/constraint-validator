@@ -1,20 +1,20 @@
-import AbstractConstraint                     from './AbstractConstraint';
-import { isArray, isNumeric, isString, trim } from '../Utils/functions';
+import AbstractConstraint                   from './AbstractConstraint';
+import {isArray, isNumeric, isString, trim} from '../Utils/functions';
 
 const MESSAGE_INVALID = 'Unsupported card type or invalid card number.';
 
-const SCHEMA_AMEX = 'AMEX';
+const SCHEMA_AMEX           = 'AMEX';
 const SCHEMA_CHINA_UNIONPAY = 'CHINA_UNIONPAY';
-const SCHEMA_DINERS = 'DINERS';
-const SCHEMA_DISCOVER = 'DISCOVER';
-const SCHEMA_INSTAPAYMENT = 'INSTAPAYMENT';
-const SCHEMA_JCB = 'JCB';
-const SCHEMA_LASER = 'LASER';
-const SCHEMA_MAESTRO = 'MAESTRO';
-const SCHEMA_MASTERCARD = 'MASTERCARD';
-const SCHEMA_MIR = 'MIR';
-const SCHEMA_UATP = 'UATP';
-const SCHEMA_VISA = 'VISA';
+const SCHEMA_DINERS         = 'DINERS';
+const SCHEMA_DISCOVER       = 'DISCOVER';
+const SCHEMA_INSTAPAYMENT   = 'INSTAPAYMENT';
+const SCHEMA_JCB            = 'JCB';
+const SCHEMA_LASER          = 'LASER';
+const SCHEMA_MAESTRO        = 'MAESTRO';
+const SCHEMA_MASTERCARD     = 'MASTERCARD';
+const SCHEMA_MIR            = 'MIR';
+const SCHEMA_UATP           = 'UATP';
+const SCHEMA_VISA           = 'VISA';
 
 const schemas = {
     // American Express card numbers start with 34 or 37 and have 15 digits.
@@ -84,7 +84,7 @@ export default class CardScheme extends AbstractConstraint {
     /**
      * @param {{message: string, schemas: array|string, trim: boolean}} [options]
      */
-    constructor(options) {
+    constructor(options = {}) {
         super(options);
 
         this.options.schemas = isString(this.options.schemas) ? [this.options.schemas] : this.options.schemas;
@@ -97,7 +97,7 @@ export default class CardScheme extends AbstractConstraint {
             throw new Error('The schemas list cannot be empty.');
         }
 
-        const allowed = Object.keys(schemas);
+        const allowed  = Object.keys(schemas);
         const filtered = this.options.schemas.filter(schema => {
             return allowed.includes(schema.toUpperCase());
         });

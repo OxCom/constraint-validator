@@ -6,7 +6,7 @@ export default class Json extends AbstractConstraint {
     /**
      * @param {{message: string}} [options]
      */
-    constructor(options) {
+    constructor(options = {}) {
         super(options);
     }
 

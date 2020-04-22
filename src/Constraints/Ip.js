@@ -1,23 +1,23 @@
 import AbstractConstraint from './AbstractConstraint';
 import ipaddr             from 'ipaddr.js';
-import { trim }          from '../Utils/functions';
+import {trim}             from '../Utils/functions';
 
 const MESSAGE_INVALID = 'This is not a valid IP address.';
 
 const MODE_ALL = 'all';
-const MODE_V4 = '4';
-const MODE_V6 = '6';
+const MODE_V4  = '4';
+const MODE_V6  = '6';
 
-const MODE_V4_NO_PRIV = '4_no_priv';
-const MODE_V6_NO_PRIV = '6_no_priv';
+const MODE_V4_NO_PRIV  = '4_no_priv';
+const MODE_V6_NO_PRIV  = '6_no_priv';
 const MODE_ALL_NO_PRIV = 'all_no_priv';
 
-const MODE_V4_NO_RES = '4_no_res';
-const MODE_V6_NO_RES = '6_no_res';
+const MODE_V4_NO_RES  = '4_no_res';
+const MODE_V6_NO_RES  = '6_no_res';
 const MODE_ALL_NO_RES = 'all_no_res';
 
-const MODE_V4_PUB = '4_pub';
-const MODE_V6_PUB = '6_pub';
+const MODE_V4_PUB  = '4_pub';
+const MODE_V6_PUB  = '6_pub';
 const MODE_ALL_PUB = 'all_pub';
 
 /**
@@ -70,7 +70,7 @@ export default class Ip extends AbstractConstraint {
     /**
      * @param {{trim: boolean, mode: string, message: string}} [options]
      */
-    constructor(options) {
+    constructor(options = {}) {
         super(options);
 
         const allowed = [

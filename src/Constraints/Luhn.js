@@ -1,5 +1,5 @@
 import AbstractConstraint from './AbstractConstraint';
-import { trim }           from '../Utils/functions';
+import {trim}             from '../Utils/functions';
 
 const MESSAGE_INVALID = 'Invalid card number.';
 
@@ -7,7 +7,7 @@ export default class Luhn extends AbstractConstraint {
     /**
      * @param {{message: string, trim: boolean}} [options]
      */
-    constructor(options) {
+    constructor(options = {}) {
         super(options);
     }
 
@@ -45,7 +45,7 @@ export default class Luhn extends AbstractConstraint {
         }
 
         let canonical = value.toString().replace(/\D/g, '');
-        let checkSum = 0;
+        let checkSum  = 0;
 
         for (let i = canonical.length - 1; i >= 0; i -= 2) {
             checkSum += parseInt(canonical.charAt(i));

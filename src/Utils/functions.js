@@ -1,7 +1,7 @@
-import is_numeric  from 'locutus/php/var/is_numeric';
-import is_float    from 'locutus/php/var/is_float';
-import is_int      from 'locutus/php/var/is_int';
-import php_trim    from 'locutus/php/strings/trim';
+import is_numeric from 'locutus/php/var/is_numeric';
+import is_float   from 'locutus/php/var/is_float';
+import is_int     from 'locutus/php/var/is_int';
+import php_trim   from 'locutus/php/strings/trim';
 
 /**
  * @param object
@@ -98,22 +98,22 @@ export function isIterable(object) {
     }
 
     return isArray(object)
-           || object instanceof Int8Array
-           || object instanceof Uint8Array
-           || object instanceof Uint8ClampedArray
-           || object instanceof Int16Array
-           || object instanceof Uint16Array
-           || object instanceof Int32Array
-           || object instanceof Uint32Array
-           || object instanceof Float32Array
-           || object instanceof Float64Array
-           // || object instanceof BigInt64Array
-           // || object instanceof BigUint64Array
-           || object instanceof Map
-           || object instanceof Set
-           || object instanceof WeakMap
-           || object instanceof WeakSet
-           || object instanceof ArrayBuffer;
+        || object instanceof Int8Array
+        || object instanceof Uint8Array
+        || object instanceof Uint8ClampedArray
+        || object instanceof Int16Array
+        || object instanceof Uint16Array
+        || object instanceof Int32Array
+        || object instanceof Uint32Array
+        || object instanceof Float32Array
+        || object instanceof Float64Array
+        // || object instanceof BigInt64Array
+        // || object instanceof BigUint64Array
+        || object instanceof Map
+        || object instanceof Set
+        || object instanceof WeakMap
+        || object instanceof WeakSet
+        || object instanceof ArrayBuffer;
 }
 
 /**

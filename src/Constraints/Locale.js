@@ -1,5 +1,5 @@
 import AbstractConstraint from './AbstractConstraint';
-import { trim }           from '../Utils/functions';
+import {trim}             from '../Utils/functions';
 import LocaleDetector     from '../Utils/LocaleDetector';
 import list               from '../Resources/locales';
 
@@ -9,7 +9,7 @@ export default class Locale extends AbstractConstraint {
     /**
      * @param {{message: string, trim: boolean}} [options]
      */
-    constructor(options) {
+    constructor(options = {}) {
         super(options);
     }
 

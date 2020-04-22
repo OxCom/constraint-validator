@@ -1,5 +1,5 @@
 import AbstractConstraint from './AbstractConstraint';
-import { trim }           from '../Utils/functions';
+import {trim}             from '../Utils/functions';
 import ord                from 'locutus/php/strings/ord';
 import ctype_upper        from 'locutus/php/ctype/ctype_upper';
 import str_split          from 'locutus/php/strings/str_split';
@@ -158,7 +158,7 @@ export default class Iban extends AbstractConstraint {
     /**
      * @param {{message: string}} [options]
      */
-    constructor(options) {
+    constructor(options = {}) {
         super(options);
     }
 
@@ -193,7 +193,7 @@ export default class Iban extends AbstractConstraint {
         }
 
         const canonical = value.replace(/ /g, '', value.toUpperCase());
-        const country = canonical.substring(0, 2);
+        const country   = canonical.substring(0, 2);
 
         if (!/^[A-Z0-9]+$/.test(canonical)
             || !isValidAlpha2(country)
@@ -206,7 +206,7 @@ export default class Iban extends AbstractConstraint {
                 .build(this.options.message);
         }
 
-        const rotated = canonical.substring(4) + canonical.substring(0, 4);
+        const rotated  = canonical.substring(4) + canonical.substring(0, 4);
         const checkSub = toBigInt(rotated);
 
         if (1 !== bigModulo97(checkSub)) {

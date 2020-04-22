@@ -1,10 +1,10 @@
 import AbstractConstraint from './AbstractConstraint';
-import { trim }           from '../Utils/functions';
+import {trim}             from '../Utils/functions';
 
 const MESSAGE_INVALID = 'This value is not valid email.';
 
-const MODE_SIMPLE = 'simple_regexp';
-const MODE_HTML5 = 'html5_regexp';
+const MODE_SIMPLE      = 'simple_regexp';
+const MODE_HTML5       = 'html5_regexp';
 const MODE_HTML5_INPUT = 'html5_input';
 
 /**
@@ -47,7 +47,7 @@ export default class Email extends AbstractConstraint {
     /**
      * @param {{trim: boolean, mode: string, message: string}} [options]
      */
-    constructor(options) {
+    constructor(options = {}) {
         super(options);
 
         const allowed = [MODE_SIMPLE, MODE_HTML5, MODE_HTML5_INPUT];
