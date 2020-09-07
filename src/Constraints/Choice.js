@@ -54,22 +54,14 @@ export default class Choice extends AbstractConstraint {
      * @return {Error|undefined}
      */
     validate(value) {
-        if (this.options.min > 0 && value.length < this.options.min) {
+        if (this.options.multiple && !Array.isArray(value)) {
             return this
                 .getViolationBuilder()
-                .setParameter('limit', this.options.min)
-                .setParameter('value', value)
-                .setParameter('choices', this.options.choices.join(', '))
-                .build(this.options.message_min);
+                .build(`Values list should be type of "array", "${typeof value}" given.`);
         }
 
-        if (this.options.max > 0 && value.length > this.options.max) {
-            return this
-                .getViolationBuilder()
-                .setParameter('limit', this.options.max)
-                .setParameter('value', value)
-                .setParameter('choices', this.options.choices.join(', '))
-                .build(this.options.message_max);
+        if (this.isEmptyValue(value)) {
+            return;
         }
 
         if (this.options.multiple) {
@@ -81,6 +73,24 @@ export default class Choice extends AbstractConstraint {
                         .setParameter('choices', this.options.choices.join(', '))
                         .build(this.options.message_multiple);
                 }
+            }
+
+            if (this.options.min > 0 && value.length < this.options.min) {
+                return this
+                    .getViolationBuilder()
+                    .setParameter('limit', this.options.min)
+                    .setParameter('value', value)
+                    .setParameter('choices', this.options.choices.join(', '))
+                    .build(this.options.message_min);
+            }
+
+            if (this.options.max > 0 && value.length > this.options.max) {
+                return this
+                    .getViolationBuilder()
+                    .setParameter('limit', this.options.max)
+                    .setParameter('value', value)
+                    .setParameter('choices', this.options.choices.join(', '))
+                    .build(this.options.message_max);
             }
         } else if (!this.options.choices.includes(value)) {
             return this

@@ -43,9 +43,21 @@ describe('Choice', function () {
                 });
         });
 
+        it('single - valid as empty', function () {
+            const list = ['a', 'b', 'c'];
+
+            let object = new Choice({choices: list});
+
+            let e = object.validate();
+            assert.ok(typeof e === 'undefined', e);
+
+            e = object.validate('');
+            assert.ok(typeof e === 'undefined', e);
+        });
+
         it('single - invalid', function () {
             const list = [
-                {choices: ['0', '1', null, undefined], values: [0, 1, parseInt('a'), 1 / 3]},
+                {choices: ['0', '1', null, undefined], values: [0, 1, 1 / 3]},
                 {choices: [2 / 6, 0, 1], values: ['0', '1', 0.333]},
             ];
 
