@@ -36,7 +36,7 @@ export default class AbstractConstraint {
     /**
      * Get list of required properties
      *
-     * @return {Array}
+     * @return {string[]}
      */
     getRequiredOptions() {
         return [];

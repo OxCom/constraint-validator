@@ -7,10 +7,10 @@ export default class PositiveOrZero extends GreaterThanOrEqual {
      * @param {{value: null, message_strict: string, strict: boolean, locale_string: string, locale_options: object}} options
      */
     constructor(options = {}) {
-        super(options);
+        options.strict = true;
+        options.value  = 0;
 
-        this.options.strict = true;
-        this.options.value  = 0;
+        super(options);
     }
 
     /**

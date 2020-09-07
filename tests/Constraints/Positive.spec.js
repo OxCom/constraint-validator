@@ -5,11 +5,7 @@ const assert = require('assert');
 describe('Positive', function () {
     describe('#constructor()', function () {
         it('empty configuration', function () {
-            try {
-                new Positive();
-            } catch (e) {
-                assert.strictEqual(e.message, 'No "value" option is configured.');
-            }
+            new Positive();
         });
 
         it('configuration with value', function () {
