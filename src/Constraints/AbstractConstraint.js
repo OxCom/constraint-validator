@@ -53,7 +53,7 @@ export default class AbstractConstraint {
      * Test provided value and return Error if occurs
      *
      * @param value
-     * @param {{form: Object}} options
+     * @param {{form: {}}} options
      *
      * @return {Error|undefined}
      */

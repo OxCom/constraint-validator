@@ -14,7 +14,7 @@ export default class AbstractCompareConstraint extends AbstractConstraint {
     }
 
     /**
-     * @return {{message_strict: string}}
+     * @return {{strict: boolean, message_strict: string}}
      */
     getDefaultOptions() {
         return {

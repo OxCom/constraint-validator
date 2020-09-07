@@ -7,7 +7,7 @@ const MESSAGE_EXTRA_FIELDS = 'This form should not contain extra fields.';
 
 export default class Form {
     /**
-     * @param {{extra_fields: boolean}} [options]
+     * @param {{extra_fields: boolean, extra_fields_message: string}} [options]
      */
     constructor(options = {}) {
         this.options = {
@@ -62,10 +62,11 @@ export default class Form {
     }
 
     /**
-     * @param {Object} data
-     * @param {Object} [options]
+     * Validate current form
      *
-     * @return {Array}
+     * @param {{}} data
+     * @param {{}} options
+     * @return {{}}
      */
     validate(data = {}, options = {}) {
         this.errors = {};
@@ -137,6 +138,9 @@ export default class Form {
         return this;
     }
 
+    /**
+     * @return {{}}
+     */
     getData() {
         return this.data;
     }
