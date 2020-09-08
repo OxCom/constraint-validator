@@ -2,13 +2,14 @@ import {terser} from 'rollup-plugin-terser';
 import resolve from '@rollup/plugin-node-resolve';
 import commonJS from '@rollup/plugin-commonjs';
 import babel from 'rollup-plugin-babel';
+import pkg from './package.json';
 
 export default {
     input: './src/validator.js',
     output: [
-        { file: './dist/constraint-validator.umd.js', format: 'umd', plugins: [ terser() ], name: 'constraint-validator' },
-        { file: './dist/constraint-validator.cjs.js', format: 'cjs', plugins: [ terser() ] },
-        { file: './dist/constraint-validator.esm.js', format: 'es', plugins: [ terser() ] },
+        { file: pkg.browser, format: 'umd', plugins: [ terser() ], name: 'constraint-validator' },
+        { file: pkg.main, format: 'cjs', plugins: [ terser() ] },
+        { file: pkg.module, format: 'esm', plugins: [ terser() ] },
     ],
     plugins: [
         resolve(),

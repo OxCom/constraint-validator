@@ -1,0 +1,10 @@
+.github/
+docs/
+tests/
+.babelrc
+.eslintrc.json
+.gitignore
+.gitlab-ci.yml
+.travis.yml
+package-lock.json
+rollup.config.js
