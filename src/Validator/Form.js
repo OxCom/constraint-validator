@@ -1,11 +1,57 @@
-import {isArray}        from '../Utils/functions';
-import ViolationBuilder from '../Utils/ViolationBuilder';
-import Validator        from './Validator';
+import {isArray, isFunction, pipe} from '../Utils/functions';
+import ViolationBuilder            from '../Utils/ViolationBuilder';
+import Validator             from './Validator';
+import Field                 from './Field';
 
 const FORM_ERROR_FIELD     = 'form';
 const MESSAGE_EXTRA_FIELDS = 'This form should not contain extra fields.';
 
 export default class Form {
+    /**
+     * @type {Validator}
+     */
+    validator;
+
+    /**
+     * @type {ViolationBuilder}
+     */
+    violationBuilder;
+
+    /**
+     * Added fields
+     *
+     * @type {{name: Field}}
+     */
+    fields = {};
+
+    /**
+     * Current form data
+     *
+     * @type {{}}
+     */
+    data = {};
+
+    /**
+     * Current errors
+     *
+     * @type {{}}
+     */
+    errors = {};
+
+    /**
+     * Form data transformers
+     *
+     * @type {function[]}
+     */
+    transformers = [];
+
+    /**
+     * Form data reverse transformers
+     *
+     * @type {function[]}
+     */
+    reversTransformers = [];
+
     /**
      * @param {{extra_fields: boolean, extra_fields_message: string}} [options]
      */
@@ -21,9 +67,6 @@ export default class Form {
 
         this.validator        = new Validator();
         this.violationBuilder = new ViolationBuilder();
-        this.fields           = {};
-        this.data             = {};
-        this.errors           = {};
     }
 
     /**
@@ -50,13 +93,10 @@ export default class Form {
             throw new Error(`The field ${field} already exists in this form.`);
         }
 
-        this.fields[field] = {
-            constants: isArray(constants) ? constants : [],
-            options: {
-                ...{},
-                ...options,
-            },
-        };
+        this.fields[field] = new Field(
+            isArray(constants) ? constants : [],
+            {...{}, ...options}
+        );
 
         return this;
     }
@@ -80,23 +120,35 @@ export default class Form {
             return this.errors;
         }
 
+        // run form transformers
+        this.data = pipe(this.transformers)(this.data, options);
+
         Object.keys(this.fields).forEach((field) => {
+            /** @type Field */
+            const oField = this.fields[field];
+
             // pass custom validation options
             const vOptions = {
                 ...options,
                 ...{
-                    field: this.fields[field].options,
+                    field: oField.getOptions(),
                     form: this
                 }
             };
 
-            const value  = this.data[field];
-            const errors = this.validator.validate(value, this.fields[field].constants, vOptions);
+            this.data[field] = pipe(oField.getTransformers())(this.data[field], vOptions);
+
+            const errors = this.validator.validate(this.data[field], oField.getConstraints(), vOptions);
 
             if (errors.length > 0) {
                 this.addValidationErrors(field, errors);
             }
+
+            this.data[field] = pipe(oField.getReverseTransformers())(this.data[field], vOptions);
         });
+
+        // run form reverse transformers
+        this.data = pipe(this.reversTransformers)(this.data, options);
 
         return this.errors;
     }
@@ -143,5 +195,71 @@ export default class Form {
      */
     getData() {
         return this.data;
+    }
+
+    /**
+     * Add data transformer
+     *
+     * @param {function} transformer
+     * @return {Form}
+     */
+    addTransformer(transformer) {
+        if (!isFunction(transformer)) {
+            throw new Error(`Transformer must be type of "function", ${typeof transformer} given.`);
+        }
+
+        this.transformers.push(transformer);
+
+        return this;
+    }
+
+    /**
+     * @param {string} name
+     * @return {Field|undefined}
+     */
+    get(name) {
+        if (!Object.keys(this.fields).includes(name)) {
+            return;
+        }
+
+        return this.fields[name];
+    }
+
+    /**
+     * Add reverse data transformer
+     *
+     * @param {function} transformer
+     * @return {Form}
+     */
+    addReverseTransformer(transformer) {
+        if (!isFunction(transformer)) {
+            throw new Error(`Transformer must be type of "function", ${typeof transformer} given.`);
+        }
+
+        this.reversTransformers.push(transformer);
+
+        return this;
+    }
+
+    /**
+     * Remove all data transformers
+     *
+     * @return {Form}
+     */
+    resetTransformers() {
+        this.transformers = [];
+
+        return this;
+    }
+
+    /**
+     * Remove all reverse data transformers
+     *
+     * @return {Form}
+     */
+    resetReverseTransformers() {
+        this.reversTransformers = [];
+
+        return this;
     }
 }

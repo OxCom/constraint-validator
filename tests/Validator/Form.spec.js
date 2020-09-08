@@ -266,4 +266,121 @@ describe('Form', function () {
             assert.strictEqual(data.ip, '8.8.8.8');
         });
     });
+
+    describe('#addTransformer() and #addReverseTransformer()', function () {
+        it('Form data can be transformed before validate', function () {
+            const form = new Form();
+            const options = {separator: '@'};
+
+            form
+                .addTransformer((data, options) => {
+                    data.email += options.separator;
+
+                    return data;
+                })
+                .addTransformer(data => {
+                    data.email += 'example.com';
+
+                    return data;
+                });
+
+            form
+                .add('email', [
+                    new NotBlank(),
+                    new Email(),
+                ]);
+
+            const e = form.validate({email: 'email'}, options);
+            const data = form.getData();
+
+            assert.strictEqual(Object.keys(e).length, 0);
+            assert.strictEqual(data.email, 'email@example.com');
+        });
+
+        it('Form data can be transformed after validate', function () {
+            const form = new Form();
+
+            form
+                .addTransformer((data) => {
+                    data.email += '@example.com';
+
+                    return data;
+                })
+                .addReverseTransformer(data => {
+                    data.email = data.email.replace(/@example.com/, '');
+
+                    return data;
+                });
+
+            form
+                .add('email', [
+                    new NotBlank(),
+                    new Email(),
+                ]);
+
+            const e = form.validate({email: 'email'});
+            const data = form.getData();
+
+            assert.strictEqual(Object.keys(e).length, 0);
+            assert.strictEqual(data.email, 'email');
+        });
+
+        it('Field data can be transformed before validate', function () {
+            const form = new Form();
+            const options = {separator: '@'};
+
+            form
+                .add('email', [
+                    new NotBlank(),
+                    new Email(),
+                ])
+                .get('email')
+                // this transformers will be assigned to the field
+                .addTransformer((value, options) => {
+                    value += options.separator;
+
+                    return value;
+                })
+                .addTransformer(value => {
+                    value += 'example.com';
+
+                    return value;
+                });
+
+            const e = form.validate({email: 'email'}, options);
+            const data = form.getData();
+
+            assert.strictEqual(Object.keys(e).length, 0);
+            assert.strictEqual(data.email, 'email@example.com');
+        });
+
+        it('Field data can be transformed after validate', function () {
+            const form = new Form();
+            const options = {separator: '@'};
+
+            form
+                .add('email', [
+                    new NotBlank(),
+                    new Email(),
+                ])
+                .get('email')
+                // this transformers will be assigned to the field
+                .addTransformer((value) => {
+                    value += '@example.com';
+
+                    return value;
+                })
+                .addReverseTransformer(value => {
+                    value = value.replace(/@example.com/, '');
+
+                    return value;
+                });
+
+            const e = form.validate({email: 'email'}, options);
+            const data = form.getData();
+
+            assert.strictEqual(Object.keys(e).length, 0);
+            assert.strictEqual(data.email, 'email');
+        });
+    });
 });

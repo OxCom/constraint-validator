@@ -1,6 +1,9 @@
 require('@babel/register')({
     presets: ['@babel/env'],
-    plugins: ['add-module-exports']
+    plugins: [
+        '@babel/plugin-proposal-class-properties',
+        'add-module-exports',
+    ]
 });
 
 require('jsdom-global/register');

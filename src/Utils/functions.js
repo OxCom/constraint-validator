@@ -133,3 +133,27 @@ export function trim(value) {
 
     return php_trim(value, ws);
 }
+
+/**
+ * @param {function[]} functions
+ * @param {{}} [options]
+ * @return {function(*=): *}
+ */
+export function pipe(functions = [], options = {}) {
+    if (!isArray(functions)) {
+        throw new Error(`Functions list must be type of "array", "${typeof functions}" given.`)
+    }
+
+    functions = functions.filter(fn => isFunction(fn));
+
+    return function (value, vOptions = {}) {
+        if (functions.length === 0) {
+            return value;
+        }
+
+
+        return functions.reduce(function (prev, fn) {
+            return fn(prev, {...options, ...vOptions});
+        }, value);
+    };
+}
