@@ -22,5 +22,10 @@ export default {
                 '@babel/plugin-proposal-class-properties'
             ]
         }),
+    ],
+    external: [
+        'ipaddr.js',
+        'locutus',
+        'luxon',
     ]
 };
