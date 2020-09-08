@@ -141,7 +141,7 @@ export function trim(value) {
  */
 export function pipe(functions = [], options = {}) {
     if (!isArray(functions)) {
-        throw new Error(`Functions list must be type of "array", "${typeof functions}" given.`)
+        throw new Error(`Functions list must be type of "array", "${typeof functions}" given.`);
     }
 
     functions = functions.filter(fn => isFunction(fn));
@@ -150,7 +150,6 @@ export function pipe(functions = [], options = {}) {
         if (functions.length === 0) {
             return value;
         }
-
 
         return functions.reduce(function (prev, fn) {
             return fn(prev, {...options, ...vOptions});
