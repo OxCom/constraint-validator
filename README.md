@@ -17,12 +17,7 @@ npm i constraint-validator --save
 
 ## Basic usage
 ```javascript
-import {
-    Form,
-    NotBlank,
-    Email,
-    Length
-} from 'constraint-validator';
+import { Form, NotBlank, Email, Length } from 'constraint-validator';
 
 const form = new Form();
 
@@ -56,6 +51,66 @@ In case of form data is not valid the ```errors``` object contains properties (r
         Error,
     ]   
 }
+```
+## Data transformers
+Data transformers are used to translate the data for a field into a other format and back. The data transformers
+act as middleware and will be executed in the same order as they were applied.
+
+There are 2 types of data transformers:
+- **transformer** - executes before validation process
+- **reverseTransformers** - executes after validation process
+
+#### Form data transformers
+```javascript
+import { Form, NotBlank, Email } from 'constraint-validator';
+
+const form = new Form();
+
+form
+    .add('email', [
+        new NotBlank(),
+        new Email(),
+    ])
+    // next transformers will be applied to the form data
+    .addTransformer(data => {
+        data.email += '@example.com'
+
+        return data;
+    })
+    .addReverseTransformer(data => {
+        data.email = data.email.replace(/@example.com/, '@example.me');
+        
+        return data; 
+    });
+
+form.validate({email: 'email'});
+
+console.log(form.getData());
+// Output:
+// {"email": "email@example.me"}
+```
+
+#### Field data transformers 
+```javascript
+import { Form, NotBlank, Email } from 'constraint-validator';
+
+const form = new Form();
+
+form
+    .add('email', [
+        new NotBlank(),
+        new Email(),
+    ])
+    .get('email')
+    // next transformers will be applied to the 'email' field only
+    .addTransformer(value => value + '@example.com')
+    .addReverseTransformer(value => value.replace(/@example.com/, '@example.me'));
+
+form.validate({email: 'email'});
+
+console.log(form.getData());
+// Output:
+// {"email": "email@example.me"}
 ```
 
 
