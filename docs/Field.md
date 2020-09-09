@@ -10,7 +10,7 @@ Add a transformer to the current form field.
 |---|---|---|
 | transformer | function | This function will be executed before field validation |
 
-**Return**: current ```Form```
+**Return**: current ```Field```
 
 ##### ```addReverseTransformer(transformer)```
 Add a reverse transformer to the current form.
@@ -19,7 +19,7 @@ Add a reverse transformer to the current form.
 |---|---|---|
 | transformer | function | This function will be executed after field validation |
 
-**Return**: current ```Form```
+**Return**: current ```Field```
 
 ## Transformer function
 The  signature for ```addTransformer(transformer)``` and ```addReverseTransformer(transformer)``` methods
