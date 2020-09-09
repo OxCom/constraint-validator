@@ -16,6 +16,29 @@ npm i constraint-validator --save
 ```
 
 ## Basic usage
+
+##### CommonJS module
+```javascript
+var validator = require("constraint-validator");
+var form = new validator.Form();
+
+form
+    .add('email', [
+        new validator.NotBlank(),
+        new validator.Email(),
+    ])
+    .add('password', [
+        new validator.NotBlank(),
+        new validator.Length({min: 6}),
+    ]);
+    
+var errors = form.validate({
+    email: 'email@example.com',
+    password: '123456',
+});
+```
+
+##### ESM module
 ```javascript
 import { Form, NotBlank, Email, Length } from 'constraint-validator';
 
@@ -35,11 +58,9 @@ const errors = form.validate({
     email: 'email@example.com',
     password: '1234567',
 });
-
-// Object with list of invalid properties. Each property contains array of errors
-console.log(errors)
 ```
 
+##### Error handing
 In case of form data is not valid the ```errors``` object contains properties (related to from filed names) and array of [Error](https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Error) objects.
 ```javascript
 {
@@ -52,6 +73,9 @@ In case of form data is not valid the ```errors``` object contains properties (r
     ]   
 }
 ```
+
+Otherwise ```error``` variable will be ```undefined```
+
 ## Data transformers
 Data transformers are used to translate the data for a field into a other format and back. The data transformers
 act as middleware and will be executed in the same order as they were applied.
