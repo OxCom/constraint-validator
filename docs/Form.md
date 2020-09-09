@@ -1,5 +1,5 @@
 # Form
-A form is composed of fields, each can be validated by provided list of constraints.
+A form composed of fields, each can be validated by provided list of constraints.
 
 ## Options
 
@@ -51,6 +51,15 @@ Return object with current loaded data. If data transformers assigned to the for
 be modified data object.
 
 **Return**: object with form data.
+
+##### ```get(name)```
+Return object associated with provided field name.
+
+| Parameter | Type | Description |
+|---|---|---|
+| name | string | The field name |
+
+**Return**: [Field](./Field.md) or ```undefined```.
 
 ##### ```addTransformer(transformer)```
 Add a transformer to the current form.

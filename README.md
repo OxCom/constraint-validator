@@ -140,6 +140,7 @@ console.log(form.getData());
 
 ## Documentation
 - [Form](docs/Form.md) - form configuration
+- [Field](docs/Field.md) - form field object
 - [Constraints](docs/Constraints.md) - list of supported constraints
   Basic constraints:
   - [NotBlank](docs/Constraints/NotBlank.md)
@@ -196,6 +197,8 @@ console.log(form.getData());
   Other constraints:
   - [Count](docs/Constraints/Count.md)
   - [Callback](docs/Constraints/Callback.md)
+
+You can [create custom constrains](./docs/Constraints.md#create-custom-constraint) by using deep integration.
 
 ## Dependencies
 - [locutus](https://github.com/kvz/locutus) - JavaScript implementation of PHP functions

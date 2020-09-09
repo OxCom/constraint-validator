@@ -86,10 +86,11 @@ export default class MyAwesomeConstraint extends AbstractConstraint {
      * Test provided value and return Error if occurs
      *
      * @param value
+     * @param {{}} [options]
      *
      * @return {Error|undefined}
      */
-    validate(value) {
+    validate(value, options = {}) {
         // provide your custom validation logic
         let isValid = false;
 
