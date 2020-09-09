@@ -44,3 +44,47 @@ Execute form validation.
 | options | object |  Extra options related to the validation flow. Will be passed to each constraint |
 
 **Return**: object with validation errors.
+
+
+##### ```getData()```
+Return object with current loaded data. If data transformers assigned to the form of field, then it will
+be modified data object.
+
+**Return**: object with form data.
+
+##### ```addTransformer(transformer)```
+Add a transformer to the current form.
+
+| Parameter | Type | Description |
+|---|---|---|
+| transformer | function | This function will be executed before form validation |
+
+**Return**: current ```Form```
+
+##### ```addReverseTransformer(transformer)```
+Add a reverse transformer to the current form.
+
+| Parameter | Type | Description |
+|---|---|---|
+| transformer | function | This function will be executed after form validation |
+
+**Return**: current ```Form```
+
+## Transformer function
+The  signature for ```addTransformer(transformer)``` and ```addReverseTransformer(transformer)``` methods
+```javascript
+const transformer = function(data, options) {
+    // hack, hack, hack ...
+
+    return data;
+}
+```
+
+| Parameter | Type | Description |
+|---|---|---|
+| data | object | The current form data |
+| options | object | The current form validation options |
+
+**Return**: modified form data ```object```
+
+
