@@ -4,7 +4,7 @@ Validates that a given `number` or `Date` object is between some minimum and max
 ## Options
 
 ##### message
-type: `string` default: `This value should be a valid number.`  
+type: `string` default: `This value should be between {{ min }} and {{ max }}.`  
 The message that will be shown if the underlying value is not a number (per the is_numeric PHP function).
 
 | Parameter | Description |
