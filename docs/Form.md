@@ -5,7 +5,6 @@ A form composed of fields, each can be validated by provided list of constraints
 
 ##### extra_fields
 type: `boolean` default: `false`  
-type: boolean default: false
 
 Usually, if you submit extra fields that aren't configured in your form, you'll get a 
 `"This form should not contain extra fields."` validation error.
@@ -29,7 +28,7 @@ Add field specification.
 |---|---|---|
 | field | string | The validation filed name |
 | constants | array |  List of constraints that should be assigned to the field |
-| options | object |  Extra options related to the field. Will be passed to each constraint |
+| options | object |  Extra options related to the [Field](./Field.md). Will be passed to each constraint |
 
 **Return**: current ```Form```
 

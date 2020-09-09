@@ -11,7 +11,7 @@ export default class Field {
     /**
      * Filed configuration
      *
-     * @type {{}}
+     * @type {{map_name: string}}
      */
     options = {};
 
@@ -31,11 +31,23 @@ export default class Field {
 
     /**
      * @param {AbstractConstraint[]} [constants]
-     * @param {{}} [options]
+     * @param {{map_name: string}} [options]
      */
     constructor(constants = [], options = {}) {
         this.constraints = constants;
         this.options     = options;
+    }
+
+    /**
+     * Map field name if configured
+     *
+     * @param {string} name
+     * @return {string}
+     */
+    getMappedFieldName(name) {
+        return typeof this.options.map_name === 'string' && this.options.map_name.length > 0
+            ? this.options.map_name
+            : name;
     }
 
     /**

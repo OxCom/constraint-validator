@@ -1,6 +1,15 @@
 # Field
 A field object that represents input data field.
 
+## Options
+
+##### map_name
+type: `string` default: `undefined`  
+
+Usually, if you have validation error it will be assigned to configured field. At some cases
+you have to show this error on the different field.  
+This option used to specify the field name that should be used when error appears.
+
 ## Methods
 
 ##### ```addTransformer(transformer)```

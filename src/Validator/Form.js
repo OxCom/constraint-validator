@@ -141,7 +141,7 @@ export default class Form {
             const errors = this.validator.validate(this.data[field], oField.getConstraints(), vOptions);
 
             if (errors.length > 0) {
-                this.addValidationErrors(field, errors);
+                this.addValidationErrors(oField.getMappedFieldName(field), errors);
             }
 
             this.data[field] = pipe(oField.getReverseTransformers())(this.data[field], vOptions);

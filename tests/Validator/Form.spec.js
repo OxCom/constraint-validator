@@ -382,5 +382,21 @@ describe('Form', function () {
             assert.strictEqual(Object.keys(e).length, 0);
             assert.strictEqual(data.email, 'email');
         });
+
+        it('Field error can be mapped', function () {
+            const form = new Form();
+
+            form
+                .add('error_field')
+                .add('email', [
+                    new NotBlank(),
+                    new Email(),
+                ], {map_name: 'error_field'});
+
+            const e = form.validate({email: 'email'});
+
+            assert.strictEqual(Object.keys(e).length, 1);
+            assert.strictEqual(e.error_field.join('; '), 'Error: This value is not valid email.');
+        });
     });
 });
