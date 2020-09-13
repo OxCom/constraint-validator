@@ -95,7 +95,7 @@ export default class Bic extends AbstractConstraint {
 
         if (this.options.iban_path !== null && isString(this.options.iban_path)) {
             // we assume that we have valid IBAN
-            const iban = options.form[this.options.iban_path];
+            const iban = options.form.data[this.options.iban_path];
 
             if (this.isEmptyValue(iban)) {
                 return;

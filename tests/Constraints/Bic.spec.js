@@ -93,7 +93,7 @@ describe('Bic', function () {
                 {bic:'BARCVGSA', iban: 'GB12 CPBK 0892 9965 0449 911'},
             ]
                 .forEach((pair) => {
-                    const e = object.validate(pair.bic, {form: {my_awesome_iban: pair.iban}});
+                    const e = object.validate(pair.bic, {form: {data: {my_awesome_iban: pair.iban}}});
 
                     assert.ok(typeof e === 'undefined', e);
                 });
@@ -102,7 +102,7 @@ describe('Bic', function () {
         it('is invalid: with IBAN', function () {
             let object = new Bic({iban_path: 'my_awesome_iban'});
 
-            const options = {form: {my_awesome_iban: 'FR14 2004 1010 0505 0001 3M02 606'}};
+            const options = {form: {data: {my_awesome_iban: 'FR14 2004 1010 0505 0001 3M02 606'}}};
             const e = object.validate('UNCRIT2B912', options);
 
             assert.strictEqual(e.message, 'This Business Identifier Code (BIC) is not associated with IBAN FR14 2004 1010 0505 0001 3M02 606.');
