@@ -1,4 +1,4 @@
-# Bic
+# Iban
 This constraint is used to ensure that a bank account number has the proper format of an 
 [International Bank Account Number (IBAN)](https://en.wikipedia.org/wiki/International_Bank_Account_Number). 
 IBAN is an internationally agreed means of identifying bank accounts across national borders with a reduced risk of propagating transcription errors.
