@@ -1,6 +1,5 @@
 # NotEqualTo
-Validates that a value is not equal to another value, defined in the options. To force that a value is not 
-equal, see [EqualTo](EqualTo.md).
+Validates that a value is not equal to another value, defined in the options. To force that a value is equal, see [EqualTo](EqualTo.md).
 
 ## Options
 
