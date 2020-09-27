@@ -58,7 +58,7 @@ export default class Collection extends AbstractConstraint {
             message_extra_fields: this.options.message_extra_fields,
         });
 
-        if (options && (options.form instanceof Form)) {
+        if (options && options.form) {
             form.setParent(options.form);
         }
 

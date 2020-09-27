@@ -4,7 +4,7 @@ export default class Field {
     /**
      * List of the assigned constraints
      *
-     * @type {AbstractConstraint[]}
+     * @type {AbstractConstraint[]|Collection}
      */
     constraints = [];
 

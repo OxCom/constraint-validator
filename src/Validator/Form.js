@@ -2,7 +2,6 @@ import {isArray, isFunction, pipe} from '../Utils/functions';
 import ViolationBuilder            from '../Utils/ViolationBuilder';
 import Validator                   from './Validator';
 import Field                       from './Field';
-import Collection                  from '../Constraints/Collection';
 
 const FORM_ERROR_FIELD     = 'form';
 const MESSAGE_EXTRA_FIELDS = 'This form should not contain extra fields.';
@@ -79,7 +78,7 @@ export default class Form {
 
     /**
      * @param {string} field
-     * @param {AbstractConstraint[]} [constants]
+     * @param {AbstractConstraint[]|Collection} [constants]
      * @param {Object} [options] Specific options for current field
      *
      * @return {Form}
@@ -93,8 +92,8 @@ export default class Form {
             throw new Error('The field name is too short.');
         }
 
-        if (typeof constants !== 'undefined' && !isArray(constants) && !(constants instanceof Collection)) {
-            throw new Error(`The constants should be type of "array", "${typeof constants}" given.`);
+        if (typeof constants !== 'undefined' && !isArray(constants) && !isFunction(constants.validate)) {
+            throw new Error(`The constants should be type of "array" or Collection constraint, "${typeof constants}" given.`);
         }
 
         if (typeof this.fields[field] !== 'undefined') {
@@ -102,7 +101,7 @@ export default class Form {
         }
 
         this.fields[field] = new Field(
-            isArray(constants) || (constants instanceof Collection) ? constants : [],
+            isArray(constants) || !isFunction(constants.validate) ? constants : [],
             {...{}, ...options}
         );
 

@@ -1,6 +1,5 @@
-import {isArray}          from '../Utils/functions';
-import AbstractConstraint from '../Constraints/AbstractConstraint';
-import Collection         from '../Constraints/Collection';
+import {isArray, isFunction} from '../Utils/functions';
+import AbstractConstraint    from '../Constraints/AbstractConstraint';
 
 export default class Validator {
     /**
@@ -15,11 +14,11 @@ export default class Validator {
     validate(value, constraints, options = {}) {
         const errors = [];
 
-        if (constraints instanceof Collection) {
-            return constraints.validate(value, options);
-        }
-
         if (!isArray(constraints)) {
+            if (isFunction(constraints.validate)) {
+                return constraints.validate(value, options);
+            }
+
             return errors;
         }
 

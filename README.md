@@ -197,6 +197,7 @@ console.log(form.getData());
   Other constraints:
   - [Count](docs/Constraints/Count.md)
   - [Callback](docs/Constraints/Callback.md)
+  - [Collection](docs/Constraints/Collection.md)
 
 You can [create custom constrains](./docs/Constraints.md#create-custom-constraint) by using deep integration.
 

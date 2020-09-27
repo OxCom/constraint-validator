@@ -44,7 +44,7 @@ import Bic                       from './Constraints/Bic';
 import Validator                 from './Validator/Validator';
 import Form                      from './Validator/Form';
 
-export default {
+const ConstraintValidator = {
     AbstractCompareConstraint: AbstractCompareConstraint,
     AbstractConstraint: AbstractConstraint,
     Length: Length,
@@ -91,3 +91,5 @@ export default {
     Validator: Validator,
     Form: Form,
 };
+
+export default ConstraintValidator;
