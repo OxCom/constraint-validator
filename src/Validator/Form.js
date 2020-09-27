@@ -1,7 +1,8 @@
 import {isArray, isFunction, pipe} from '../Utils/functions';
 import ViolationBuilder            from '../Utils/ViolationBuilder';
-import Validator             from './Validator';
-import Field                 from './Field';
+import Validator                   from './Validator';
+import Field                       from './Field';
+import Collection                  from '../Constraints/Collection';
 
 const FORM_ERROR_FIELD     = 'form';
 const MESSAGE_EXTRA_FIELDS = 'This form should not contain extra fields.';
@@ -53,14 +54,21 @@ export default class Form {
     reversTransformers = [];
 
     /**
-     * @param {{extra_fields: boolean, extra_fields_message: string}} [options]
+     * @type {Form}
+     */
+    parent;
+
+    /**
+     * @param {{extra_fields: boolean, message_extra_fields: string}} [options]
      */
     constructor(options = {}) {
         this.options = {
             ...{
                 // trigger error in form data contains fields that were not described in a form
                 extra_fields: false,
-                extra_fields_message: MESSAGE_EXTRA_FIELDS,
+                message_extra_fields: MESSAGE_EXTRA_FIELDS,
+                extra_fields_message: undefined,
+                form_error_filed: FORM_ERROR_FIELD,
             },
             ...options
         };
@@ -85,7 +93,7 @@ export default class Form {
             throw new Error('The field name is too short.');
         }
 
-        if (typeof constants !== 'undefined' && !isArray(constants)) {
+        if (typeof constants !== 'undefined' && !isArray(constants) && !(constants instanceof Collection)) {
             throw new Error(`The constants should be type of "array", "${typeof constants}" given.`);
         }
 
@@ -94,7 +102,7 @@ export default class Form {
         }
 
         this.fields[field] = new Field(
-            isArray(constants) ? constants : [],
+            isArray(constants) || (constants instanceof Collection) ? constants : [],
             {...{}, ...options}
         );
 
@@ -140,7 +148,7 @@ export default class Form {
 
             const errors = this.validator.validate(this.data[field], oField.getConstraints(), vOptions);
 
-            if (errors.length > 0) {
+            if (errors && errors.length > 0) {
                 this.addValidationErrors(oField.getMappedFieldName(field), errors);
             }
 
@@ -179,8 +187,8 @@ export default class Form {
         for (const field of Object.keys(this.data)) {
             if (typeof this.fields[field] === 'undefined') {
                 this.addValidationErrors(
-                    FORM_ERROR_FIELD,
-                    this.violationBuilder.build(this.options.extra_fields_message)
+                    this.options.form_error_filed,
+                    this.violationBuilder.build(this.options.extra_fields_message || this.options.message_extra_fields)
                 );
 
                 break;
@@ -261,5 +269,25 @@ export default class Form {
         this.reversTransformers = [];
 
         return this;
+    }
+
+    /**
+     * @param {Form} form
+     */
+    setParent(form) {
+        if (!(form instanceof Form)) {
+            throw new Error(`Form expected to by type of "Form", ${typeof form} given.`);
+        }
+
+        this.parent = form;
+
+        return this;
+    }
+
+    /**
+     * @type {Form|undefined}
+     */
+    getParent() {
+        return this.parent;
     }
 }

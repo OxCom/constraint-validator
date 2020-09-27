@@ -11,7 +11,7 @@ Usually, if you submit extra fields that aren't configured in your form, you'll 
 
 You can silence this validation error by enabling the `extra_fields` option on the form.
 
-##### extra_fields_message
+##### message_extra_fields
 type: `string` default: `This form should not contain extra fields.`
 
 This is the validation error message that's used if the submitted form data contains one or 

@@ -74,7 +74,7 @@ In case of form data is not valid the ```errors``` object contains properties (r
 }
 ```
 
-Otherwise ```error``` variable will be ```undefined```
+Otherwise ```error``` variable will be empty object ```{}```
 
 ## Data transformers
 Data transformers are used to translate the data for a field into a other format and back. The data transformers

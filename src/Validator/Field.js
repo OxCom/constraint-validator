@@ -30,7 +30,7 @@ export default class Field {
     reversTransformers = [];
 
     /**
-     * @param {AbstractConstraint[]} [constants]
+     * @param {AbstractConstraint[]|Collection} [constants]
      * @param {{map_name: string}} [options]
      */
     constructor(constants = [], options = {}) {
@@ -51,7 +51,7 @@ export default class Field {
     }
 
     /**
-     * @return {AbstractConstraint[]}
+     * @return {AbstractConstraint[]|Collection}
      */
     getConstraints() {
         return this.constraints;

@@ -23,6 +23,7 @@ import PositiveOrZero            from './Constraints/PositiveOrZero';
 import IsNull                    from './Constraints/IsNull';
 import NotNull                   from './Constraints/NotNull';
 import Type                      from './Constraints/Type';
+import Collection                from './Constraints/Collection';
 import Choice                    from './Constraints/Choice';
 import Count                     from './Constraints/Count';
 import DateTime                  from './Constraints/DateTime';
@@ -70,6 +71,7 @@ export default {
     PositiveOrZero: PositiveOrZero,
     Type: Type,
     Choice: Choice,
+    Collection: Collection,
     Count: Count,
     DateTime: DateTime,
     Timezone: Timezone,

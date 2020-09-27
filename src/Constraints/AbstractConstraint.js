@@ -4,6 +4,9 @@ import LocaleDetector   from '../Utils/LocaleDetector';
 const detector = new LocaleDetector();
 
 export default class AbstractConstraint {
+    /**
+     * @param {{locale_string: string, locale_options: object}} options
+     */
     constructor(options = {}) {
         this.options = {
             ...this.getDefaultOptions(),
@@ -53,7 +56,7 @@ export default class AbstractConstraint {
      * Test provided value and return Error if occurs
      *
      * @param value
-     * @param {{form: {}}} options
+     * @param {{form: Form}} options
      *
      * @return {Error|undefined}
      */
