@@ -23,7 +23,7 @@ const fields = {
 }
 ```
 
-##### message_extra_fields
+##### allow_extra_fields
 type: `boolean` default: `false`  
 If this option is set to **false** and the underlying collection contains one or more elements that are not included in 
 the fields option, a validation error will be returned. If set to true, extra fields are OK.
