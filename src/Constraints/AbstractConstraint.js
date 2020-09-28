@@ -85,6 +85,10 @@ export default class AbstractConstraint {
      * @return {String}
      */
     formatDateValue(date) {
+        if (isNaN(date.getTime())) {
+            return '';
+        }
+
         return new Intl.DateTimeFormat(this.locale_string, this.locale_options).format(date);
     }
 }
