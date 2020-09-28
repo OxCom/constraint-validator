@@ -44,7 +44,7 @@ export default class Collection extends AbstractConstraint {
      * @param {object} values
      * @param {{form: Form}} options
      *
-     * @return {Error[]|undefined}
+     * @return {Map|undefined}
      */
     validate(values, options) {
         if (!Array.isArray(values)) {
@@ -66,11 +66,17 @@ export default class Collection extends AbstractConstraint {
             form.add(field, this.options.fields[field], {form});
         });
 
-        const collectionErrors = values
-            .map(data => form.validate(data))
-            .filter(errors => Object.keys(errors).length > 0);
+        const collectionErrors = new Map();
 
-        if (collectionErrors.length > 0) {
+        values.forEach((data, idx) => {
+            const errors = form.validate(data);
+
+            if (Object.keys(errors).length > 0) {
+                collectionErrors.set(idx, errors);
+            }
+        });
+
+        if (collectionErrors.size > 0) {
             return collectionErrors;
         }
     }

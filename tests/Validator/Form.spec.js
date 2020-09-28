@@ -1,6 +1,9 @@
 import { Form, NotBlank, Email, Ip, Length } from '../../src/validator';
 import Callback                              from '../../src/Constraints/Callback';
 import Collection                            from '../../src/Constraints/Collection';
+import All                                   from '../../src/Constraints/All';
+import Count                                 from '../../src/Constraints/Count';
+import {isArray}                             from '../../src/Utils/functions';
 
 const assert = require('assert');
 
@@ -71,9 +74,9 @@ describe('Form', function () {
                     const form = new Form();
                     form.add('email', constraints);
 
-                    assert.fail('The constants name should be a string.');
+                    assert.fail('The constants name should be a array.');
                 } catch (e) {
-                    assert.strictEqual(e.message, `The constants should be type of "array", "${typeof constraints}" given.`);
+                    assert.strictEqual(e.message, `The constants should be type of "array" or Collection constraint, "${typeof constraints}" given.`);
                 }
             });
         });
@@ -219,33 +222,6 @@ describe('Form', function () {
 
             assert.strictEqual(Object.keys(e).length, 0);
         });
-    });
-
-    describe('#getParent() / #setParent()', function () {
-        it('simple getter / setter - invalid type', function () {
-            const form = new Form();
-
-            try {
-                form.setParent(1);
-            } catch (e) {
-                assert.strictEqual(e.message, 'Form expected to by type of "Form", number given.');
-            }
-        });
-
-        it('simple getter / setter - valid type', function () {
-            const form1 = new Form();
-            const form2 = new Form();
-
-            assert.ok(typeof form1.getParent() === 'undefined');
-            assert.ok(typeof form2.getParent() === 'undefined');
-            form2.setParent(form1);
-
-            assert.ok(typeof form1.getParent() === 'undefined');
-            assert.ok(typeof form2.getParent() !== 'undefined');
-
-            assert.ok(form2.getParent() === form1);
-            assert.ok(form2.getParent() !== form2);
-        });
 
         it('Collection constraint - invalid', function () {
             const form = new Form();
@@ -273,8 +249,68 @@ describe('Form', function () {
             });
 
             assert.strictEqual(Object.keys(e).length, 1);
-            assert.strictEqual(e.emails[0].email[0].message, 'This value is not a valid.');
-            assert.strictEqual(e.emails[1].email[0].message, 'This value is not a valid.');
+            assert.strictEqual(e.emails.get(0).email[0].message, 'This value is not a valid.');
+            assert.strictEqual(e.emails.get(1).email[0].message, 'This value is not a valid.');
+        });
+
+        it('Collection constraint - empty emails - valid', function () {
+            const form = new Form();
+
+            form.add('emails', new Collection({
+                fields: {
+                    email: [
+                        new Callback({
+                            callback: (value, options) => {
+                                assert.ok(options.form.getParent() === form);
+                                assert.ok(options.form !== form);
+
+                                return false;
+                            }
+                        })
+                    ]
+                }
+            }));
+
+            const e = form.validate({
+                emails: []
+            });
+
+            assert.strictEqual(Object.keys(e).length, 0);
+        });
+
+        it('Collection constraint - min 3 items required - invalid', function () {
+            const form = new Form();
+
+            form.add('emails', [
+                new Count({min: 3}),
+                new Collection({
+                    fields: {
+                        email: [
+                            new Email,
+                            new Callback({
+                                callback: (value, options) => {
+                                    assert.ok(options.form.getParent() === form);
+                                    assert.ok(options.form !== form);
+
+                                    return true;
+                                }
+                            })
+                        ]
+                    }
+                })
+            ]);
+
+            const e = form.validate({
+                emails: [
+                    {email: 'qwe@asd.ru'},
+                    {email: 'asd'},
+                ]
+            });
+
+            assert.strictEqual(Object.keys(e).length, 1);
+            assert.ok(isArray(e.emails));
+            assert.strictEqual(e.emails[0].message, 'This collection should contain 3 elements or more.');
+            assert.strictEqual(e.emails[1].get(1).email[0].message, 'This value is not valid email.');
         });
 
         it('Collection constraint - valid', function () {
@@ -302,6 +338,144 @@ describe('Form', function () {
             });
 
             assert.strictEqual(Object.keys(e).length, 0);
+        });
+
+        it('All constraint - invalid', function () {
+            const form = new Form();
+
+            form.add('emails', new All({
+                constraints: [
+                    new NotBlank,
+                    new Email,
+                ]
+            }));
+
+            const e = form.validate({
+                emails: [
+                    'aaaaaaaaa',
+                    'qwe@example.com',
+                    '',
+                ]
+            });
+
+            assert.strictEqual(Object.keys(e).length, 1);
+            assert.ok(e.emails instanceof Map);
+            assert.strictEqual(e.emails.get(0)[0].message, 'This value is not valid email.');
+            assert.ok(!e.emails.has(1));
+            assert.strictEqual(e.emails.get(2)[0].message, 'This value should not be blank.');
+        });
+
+        it('All constraint - empty list - valid', function () {
+            const form = new Form();
+
+            form.add('emails', new All({
+                constraints: [
+                    new NotBlank,
+                    new Email,
+                ]
+            }));
+
+            const e = form.validate({
+                emails: []
+            });
+
+            assert.strictEqual(Object.keys(e).length, 0);
+        });
+
+        it('All constraint - 3 elements required - invalid', function () {
+            const form = new Form();
+
+            form.add('emails', [
+                new Count({min: 3}),
+                new All({
+                    constraints: [
+                        new Email,
+                    ]
+                }),
+            ]);
+
+            const e = form.validate({
+                emails: [
+                    'example@example.com',
+                    'aaaa'
+                ]
+            });
+
+            assert.strictEqual(Object.keys(e).length, 1);
+            assert.ok(isArray(e.emails));
+            assert.strictEqual(e.emails[0].message, 'This collection should contain 3 elements or more.');
+            assert.strictEqual(e.emails[1].get(1)[0].message, 'This value is not valid email.');
+        });
+
+        it('All constraint - 3 elements required - valid', function () {
+            const form = new Form();
+
+            form.add('emails', [
+                new Count({min: 3}),
+                new All({
+                    constraints: [
+                        new Email,
+                    ]
+                }),
+            ]);
+
+            const e = form.validate({
+                emails: [
+                    'example@example.com',
+                    'example@example.com',
+                    'example@example.com',
+                ]
+            });
+
+            assert.strictEqual(Object.keys(e).length, 0);
+        });
+
+        it('All constraint - valid', function () {
+            const form = new Form();
+
+            form.add('emails', new All({
+                constraints: [
+                    new NotBlank,
+                    new Email,
+                ]
+            }));
+
+            const e = form.validate({
+                emails: [
+                    'qwe-1@example.com',
+                    'qwe-2@example.com',
+                    'qwe-3@example.com',
+                ]
+            });
+
+            assert.strictEqual(Object.keys(e).length, 0);
+        });
+    });
+
+    describe('#getParent() / #setParent()', function () {
+        it('simple getter / setter - invalid type', function () {
+            const form = new Form();
+
+            try {
+                form.setParent(1);
+            } catch (e) {
+                assert.strictEqual(e.message, 'Form expected to by type of "Form", number given.');
+            }
+        });
+
+        it('simple getter / setter - valid type', function () {
+            const form1 = new Form();
+            const form2 = new Form();
+
+            assert.ok(typeof form1.getParent() === 'undefined');
+            assert.ok(typeof form2.getParent() === 'undefined');
+            form2.setParent(form1);
+
+            assert.ok(typeof form1.getParent() === 'undefined');
+            assert.ok(typeof form2.getParent() !== 'undefined');
+
+            assert.ok(form2.getParent() === form1);
+            assert.ok(form2.getParent() !== form2);
         });
     });
 

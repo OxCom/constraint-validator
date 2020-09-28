@@ -19,6 +19,8 @@ describe('Collection', function () {
                 new Collection({
                     fields: {},
                 });
+
+                assert.fail('Empty fields list should trigger error.');
             } catch (e) {
                 assert.strictEqual(e.message, 'Fields list is empty.');
             }
@@ -70,7 +72,7 @@ describe('Collection', function () {
             assert.ok(typeof e === 'undefined', e);
         });
 
-        it('constraints - invalid', function () {
+        it('constraints with errors index - invalid', function () {
             const object = new Collection({
                 fields: {
                     email: [
@@ -82,14 +84,17 @@ describe('Collection', function () {
 
             const data = [
                 {email: ''},
+                {email: 'www@example.com'},
                 {email: 'aaaaaaaaaaa'}
             ];
 
             const e = object.validate(data);
-            assert.ok(Array.isArray(e));
-            assert.strictEqual(e.length, 2);
-            assert.strictEqual(e[0].email[0].message, 'This value should not be blank.');
-            assert.strictEqual(e[1].email[0].message, 'This value is not valid email.');
+
+            assert.ok(e instanceof Map);
+            assert.strictEqual(e.size, 2);
+            assert.strictEqual(e.get(0).email[0].message, 'This value should not be blank.');
+            assert.ok(!e.has(1));
+            assert.strictEqual(e.get(2).email[0].message, 'This value is not valid email.');
         });
 
         it('extra fields not allowed - invalid', function () {
@@ -108,10 +113,9 @@ describe('Collection', function () {
             ];
 
             const e = object.validate(data);
-            assert.ok(Array.isArray(e));
-            assert.strictEqual(e.length, 1);
-
-            assert.strictEqual(e[0].element[0].message, 'This collection element should not contain extra fields.');
+            assert.ok(e instanceof Map);
+            assert.strictEqual(e.size, 1);
+            assert.strictEqual(e.get(0).element[0].message, 'This collection element should not contain extra fields.');
         });
 
         it('extra fields allowed - invalid', function () {

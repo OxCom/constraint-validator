@@ -198,6 +198,7 @@ console.log(form.getData());
   - [Count](docs/Constraints/Count.md)
   - [Callback](docs/Constraints/Callback.md)
   - [Collection](docs/Constraints/Collection.md)
+  - [All](docs/Constraints/All.md)
 
 You can [create custom constrains](./docs/Constraints.md#create-custom-constraint) by using deep integration.
 
@@ -212,10 +213,6 @@ You can [create custom constrains](./docs/Constraints.md#create-custom-constrain
 
 **Q**: Is there same logic as symfony has?  
 **A**: No, please check documentation for each constraint
-
-## TODO
-Investigate and add financial and other number constraints
-- All
 
 Investigate [DayJS](https://github.com/iamkun/dayjs) as replacements: find a way to validate timezones.
 

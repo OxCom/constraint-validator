@@ -10,7 +10,7 @@ This constraint can also make sure that certain collection keys are present and 
 
 ## Options
 ##### fields
-type: `object`
+type: `object`  
 This option required and is an object with defining all keys in the collection and, for each key, exactly 
 which list of constraints should be executed against that element of the collection, for example:
 ```javascript
@@ -72,4 +72,18 @@ this.form
         // other constraint options
         // ...
     }))
+```
+
+## Errors handling
+There is different flow to handle errors from this constraint. To keep the order and to provide useful information about
+what element triggers error, the errors list for provided filed will have 
+type [Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map) instead of [Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)  
+
+Errors example:
+```javascript
+{
+    // ...
+    // 'emails': Map(2) { 0 => { email: [Error, Error] }, 2 => { email: [Error, Error] } },   
+    // ...   
+}
 ```

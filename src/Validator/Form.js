@@ -2,6 +2,7 @@ import {isArray, isFunction, pipe} from '../Utils/functions';
 import ViolationBuilder            from '../Utils/ViolationBuilder';
 import Validator                   from './Validator';
 import Field                       from './Field';
+import AbstractConstraint          from '../Constraints/AbstractConstraint';
 
 const FORM_ERROR_FIELD     = 'form';
 const MESSAGE_EXTRA_FIELDS = 'This form should not contain extra fields.';
@@ -78,12 +79,12 @@ export default class Form {
 
     /**
      * @param {string} field
-     * @param {AbstractConstraint[]|Collection} [constants]
+     * @param {AbstractConstraint[]|Collection} [constraints]
      * @param {Object} [options] Specific options for current field
      *
      * @return {Form}
      */
-    add(field, constants, options = {}) {
+    add(field, constraints, options = {}) {
         if (typeof field !== 'string') {
             throw new Error(`The field should be type of "string", "${typeof field}" given.`);
         }
@@ -92,18 +93,19 @@ export default class Form {
             throw new Error('The field name is too short.');
         }
 
-        if (typeof constants !== 'undefined' && !isArray(constants) && !isFunction(constants.validate)) {
-            throw new Error(`The constants should be type of "array" or Collection constraint, "${typeof constants}" given.`);
+        if (typeof constraints !== 'undefined' && !isArray(constraints)) {
+            if (!(constraints instanceof AbstractConstraint)) {
+                throw new Error(`The constants should be type of "array" or Collection constraint, "${typeof constraints}" given.`);
+            }
         }
+
+        constraints = typeof constraints === 'undefined' ? [] : constraints;
 
         if (typeof this.fields[field] !== 'undefined') {
             throw new Error(`The field ${field} already exists in this form.`);
         }
 
-        this.fields[field] = new Field(
-            isArray(constants) || !isFunction(constants.validate) ? constants : [],
-            {...{}, ...options}
-        );
+        this.fields[field] = new Field(constraints, {...{}, ...options});
 
         return this;
     }
@@ -147,7 +149,7 @@ export default class Form {
 
             const errors = this.validator.validate(this.data[field], oField.getConstraints(), vOptions);
 
-            if (errors && errors.length > 0) {
+            if (errors && (errors.length > 0 || errors.size > 0)) {
                 this.addValidationErrors(oField.getMappedFieldName(field), errors);
             }
 
@@ -172,6 +174,8 @@ export default class Form {
 
         if (isArray(error)) {
             this.errors[field] = this.errors[field].concat(error);
+        } else if (error instanceof Map) {
+            this.errors[field] = error;
         } else {
             this.errors[field].push(error);
         }

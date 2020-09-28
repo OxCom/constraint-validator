@@ -58,6 +58,7 @@ Other constraints:
 - [Count](./Constraints/Count.md)
 - [Callback](./Constraints/Callback.md)
 - [Collection](./Constraints/Collection.md)
+- [All](./Constraints/All.md)
 
 ## Create custom constraint
 

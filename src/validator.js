@@ -1,5 +1,6 @@
 import AbstractCompareConstraint from './Constraints/AbstractCompareConstraint';
 import AbstractConstraint        from './Constraints/AbstractConstraint';
+import All                       from './Constraints/All';
 import Length                    from './Constraints/Length';
 import Email                     from './Constraints/Email';
 import Blank                     from './Constraints/Blank';
@@ -47,6 +48,7 @@ import Form                      from './Validator/Form';
 const ConstraintValidator = {
     AbstractCompareConstraint: AbstractCompareConstraint,
     AbstractConstraint: AbstractConstraint,
+    All: All,
     Length: Length,
     Email: Email,
     Blank: Blank,
