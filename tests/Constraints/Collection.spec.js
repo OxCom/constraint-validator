@@ -4,7 +4,7 @@ import NotBlank     from '../../src/Constraints/NotBlank';
 
 const assert = require('assert');
 
-describe('Collection', function () {
+describe('Constraints/Collection', function () {
     describe('#constructor()', function () {
         it('empty configuration', function () {
             try {

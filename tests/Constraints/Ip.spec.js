@@ -2,7 +2,7 @@ import { Ip } from '../../src/validator';
 
 const assert = require('assert');
 
-describe('Ip', function () {
+describe('Constraints/Ip', function () {
     describe('#constructor()', function () {
         it('empty configuration', function () {
             new Ip();

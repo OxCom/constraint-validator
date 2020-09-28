@@ -2,7 +2,7 @@ import { Type } from '../../src/validator';
 
 const assert = require('assert');
 
-describe('Type', function () {
+describe('Constraints/Type', function () {
     const types = [
         {type: 'array', value1: ['a', 'b'], value2: 'array'},
         {type: 'date', value1: new Date(), value2: 'now'},

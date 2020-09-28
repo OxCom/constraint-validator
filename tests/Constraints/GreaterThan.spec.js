@@ -2,7 +2,7 @@ import { GreaterThan } from '../../src/validator';
 
 const assert = require('assert');
 
-describe('GreaterThan', function () {
+describe('Constraints/GreaterThan', function () {
     describe('#constructor()', function () {
         it('empty configuration', function () {
             try {

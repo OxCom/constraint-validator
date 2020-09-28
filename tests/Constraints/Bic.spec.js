@@ -2,7 +2,7 @@ import { Bic } from '../../src/validator';
 
 const assert = require('assert');
 
-describe('Bic', function () {
+describe('Constraints/Bic', function () {
     describe('#constructor()', function () {
         it('empty configuration', function () {
             new Bic();

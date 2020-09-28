@@ -2,7 +2,7 @@ import {pipe} from '../../src/Utils/functions';
 
 const assert = require('assert');
 
-describe('pipe', function() {
+describe('Utils/pipe', function() {
     it('empty list', function() {
         const middlewares = [];
         const value = 1;

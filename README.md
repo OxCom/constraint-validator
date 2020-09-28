@@ -214,5 +214,9 @@ You can [create custom constrains](./docs/Constraints.md#create-custom-constrain
 **Q**: Is there same logic as symfony has?  
 **A**: No, please check documentation for each constraint
 
-Investigate [DayJS](https://github.com/iamkun/dayjs) as replacements: find a way to validate timezones.
+## TODO
+- Provide ```types.d.ts``` for better user experience
+- CI/CD build flow (drop ```dist``` folder)
+- Proper package integration (get IDE autocomplete working better)
+- Investigate [DayJS](https://github.com/iamkun/dayjs) as replacements: find a way to validate timezones.
 

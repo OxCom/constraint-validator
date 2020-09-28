@@ -7,7 +7,7 @@ import {isArray}                             from '../../src/Utils/functions';
 
 const assert = require('assert');
 
-describe('Form', function () {
+describe('Validator/Form', function () {
     describe('#constructor()', function () {
         it('empty constructor', function () {
             new Form();

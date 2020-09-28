@@ -2,7 +2,7 @@ import { Count } from '../../src/validator';
 
 const assert = require('assert');
 
-describe('Count', function () {
+describe('Constraints/Count', function () {
     describe('#constructor()', function () {
         it('empty configuration', function () {
             try {

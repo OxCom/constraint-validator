@@ -2,7 +2,7 @@ import {Callback} from '../../src/validator';
 
 const assert = require('assert');
 
-describe('Callback', function () {
+describe('Constraints/Callback', function () {
     describe('#constructor()', function () {
         it('empty configuration', function () {
             try {

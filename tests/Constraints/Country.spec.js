@@ -2,7 +2,7 @@ import { Country } from '../../src/validator';
 
 const assert = require('assert');
 
-describe('Country', function () {
+describe('Constraints/Country', function () {
     describe('#constructor()', function () {
         it('empty configuration', function () {
             new Country();

@@ -2,7 +2,7 @@ import { Email } from '../../src/validator';
 
 const assert = require('assert');
 
-describe('Email', function () {
+describe('Constraints/Email', function () {
     describe('#constructor()', function () {
         it('empty configuration', function () {
             new Email();

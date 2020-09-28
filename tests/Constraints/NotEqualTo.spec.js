@@ -2,7 +2,7 @@ import { NotEqualTo } from '../../src/validator';
 
 const assert = require('assert');
 
-describe('NotEqualTo', function () {
+describe('Constraints/NotEqualTo', function () {
     describe('#constructor()', function () {
         it('empty configuration', function () {
             try {

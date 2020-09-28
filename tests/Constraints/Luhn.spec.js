@@ -2,7 +2,7 @@ import { Luhn } from '../../src/validator';
 
 const assert = require('assert');
 
-describe('Luhn', function () {
+describe('Constraints/Luhn', function () {
     describe('#constructor()', function () {
         it('empty configuration', function () {
             new Luhn();

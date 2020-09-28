@@ -2,7 +2,7 @@ import { Iban } from '../../src/validator';
 
 const assert = require('assert');
 
-describe('Iban', function () {
+describe('Constraints/Iban', function () {
     describe('#constructor()', function () {
         it('empty configuration', function () {
             new Iban();

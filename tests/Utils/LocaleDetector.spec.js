@@ -2,7 +2,7 @@ import LocaleDetector from '../../src/Utils/LocaleDetector';
 
 const assert = require('assert');
 
-describe('LocaleDetector', function() {
+describe('Utils/LocaleDetector', function() {
     describe('#constructor()', function() {
         it('empty constructor', function() {
             new LocaleDetector();

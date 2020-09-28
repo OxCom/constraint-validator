@@ -2,7 +2,7 @@ import { Range } from '../../src/validator';
 
 const assert = require('assert');
 
-describe('Range', function () {
+describe('Constraints/Range', function () {
     describe('#constructor()', function () {
         it('empty configuration', function () {
             try {

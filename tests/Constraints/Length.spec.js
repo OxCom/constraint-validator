@@ -2,7 +2,7 @@ import { Length } from '../../src/validator';
 
 const assert = require('assert');
 
-describe('Length', function () {
+describe('Constraints/Length', function () {
     describe('#constructor()', function () {
         it('empty configuration', function () {
             try {

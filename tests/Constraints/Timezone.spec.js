@@ -2,7 +2,7 @@ import { Timezone } from '../../src/validator';
 
 const assert = require('assert');
 
-describe('Timezone', function () {
+describe('Constraints/Timezone', function () {
     describe('#constructor()', function () {
         it('empty configuration', function () {
             new Timezone();

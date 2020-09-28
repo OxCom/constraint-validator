@@ -2,7 +2,7 @@ import { Locale } from '../../src/validator';
 
 const assert = require('assert');
 
-describe('Locale', function () {
+describe('Constraints/Locale', function () {
     describe('#constructor()', function () {
         it('empty configuration', function () {
             new Locale();

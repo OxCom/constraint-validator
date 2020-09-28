@@ -2,7 +2,7 @@ import { NegativeOrZero } from '../../src/validator';
 
 const assert = require('assert');
 
-describe('NegativeOrZero', function () {
+describe('Constraints/NegativeOrZero', function () {
     describe('#constructor()', function () {
         it('empty configuration', function () {
             new NegativeOrZero();

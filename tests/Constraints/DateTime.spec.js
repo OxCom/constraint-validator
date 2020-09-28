@@ -2,7 +2,7 @@ import { DateTime } from '../../src/validator';
 
 const assert = require('assert');
 
-describe('DateTime', function () {
+describe('Constraints/DateTime', function () {
     describe('#constructor()', function () {
         it('empty configuration', function () {
             new DateTime();

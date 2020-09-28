@@ -2,7 +2,7 @@ import { Json } from '../../src/validator';
 
 const assert = require('assert');
 
-describe('Json', function () {
+describe('Constraints/Json', function () {
     describe('#constructor()', function () {
         it('empty configuration', function () {
             new Json();

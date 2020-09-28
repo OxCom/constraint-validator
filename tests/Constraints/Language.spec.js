@@ -2,7 +2,7 @@ import { Language } from '../../src/validator';
 
 const assert = require('assert');
 
-describe('Language', function () {
+describe('Constraints/Language', function () {
     describe('#constructor()', function () {
         it('empty configuration', function () {
             new Language();

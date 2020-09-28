@@ -2,7 +2,7 @@ import ViolationBuilder from '../../src/Utils/ViolationBuilder';
 
 const assert = require('assert');
 
-describe('ViolationBuilder', function () {
+describe('Utils/ViolationBuilder', function () {
     describe('#constructor()', function () {
         it('empty message template provided', function () {
             const object = new ViolationBuilder();

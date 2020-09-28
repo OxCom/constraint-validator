@@ -2,7 +2,7 @@ import { Validator, NotBlank, Email } from '../../src/validator';
 
 const assert = require('assert');
 
-describe('Validator', function () {
+describe('Validator/Validator', function () {
     describe('#constructor()', function () {
         it('empty constructor', function () {
             new Validator();

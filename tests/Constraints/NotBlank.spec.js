@@ -2,7 +2,7 @@ import { NotBlank } from '../../src/validator';
 
 const assert = require('assert');
 
-describe('NotBlank', function () {
+describe('Constraints/NotBlank', function () {
     describe('#constructor()', function () {
         it('empty configuration', function () {
             new NotBlank();

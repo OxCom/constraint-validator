@@ -2,7 +2,7 @@ import { EqualTo } from '../../src/validator';
 
 const assert = require('assert');
 
-describe('EqualTo', function () {
+describe('Constraints/EqualTo', function () {
     describe('#constructor()', function () {
         it('empty configuration', function () {
             try {

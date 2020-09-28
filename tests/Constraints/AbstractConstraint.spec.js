@@ -4,7 +4,7 @@ import ViolationBuilder       from '../../src/Utils/ViolationBuilder';
 
 const assert = require('assert');
 
-describe('AbstractConstraint', function () {
+describe('Constraints/AbstractConstraint', function () {
     describe('#constructor()', function () {
         it('empty configuration', function () {
             new AbstractConstraint();

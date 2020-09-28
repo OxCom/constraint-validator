@@ -2,7 +2,7 @@ import { LessThan } from '../../src/validator';
 
 const assert = require('assert');
 
-describe('LessThan', function () {
+describe('Constraints/LessThan', function () {
     describe('#constructor()', function () {
         it('empty configuration', function () {
             try {

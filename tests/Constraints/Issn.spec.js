@@ -2,7 +2,7 @@ import { Issn } from '../../src/validator';
 
 const assert = require('assert');
 
-describe('Issn', function () {
+describe('Constraints/Issn', function () {
     describe('#constructor()', function () {
         it('empty configuration', function () {
             new Issn();

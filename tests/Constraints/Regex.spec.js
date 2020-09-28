@@ -2,7 +2,7 @@ import { Regex } from '../../src/validator';
 
 const assert = require('assert');
 
-describe('Regex', function () {
+describe('Constraints/Regex', function () {
     describe('#constructor()', function () {
         it('empty configuration', function () {
             try {
