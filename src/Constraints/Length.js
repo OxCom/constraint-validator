@@ -7,7 +7,7 @@ const MESSAGE_EXACT = 'This value should have exactly {{ limit }} character(s).'
 
 export default class Length extends AbstractConstraint {
     /**
-     * @param {{min: number, max: number, message_min: string, message_max: string, message_exact: string, trim: boolean}} options
+     * @param {{min: number, max: number, message_min: string, message_max: string, message_exact: string, trim: boolean, allow_empty_string: boolean}} options
      */
     constructor(options = {}) {
         super(options);
@@ -22,6 +22,7 @@ export default class Length extends AbstractConstraint {
     getDefaultOptions() {
         return {
             'trim': true,
+            'allow_empty_string': false,
             'message_min': MESSAGE_MIN,
             'message_max': MESSAGE_MAX,
             'message_exact': MESSAGE_EXACT,
@@ -54,7 +55,7 @@ export default class Length extends AbstractConstraint {
             value = trim(value);
         }
 
-        if (typeof value !== 'string') {
+        if (typeof value !== 'string' || this.options.allow_empty_string && this.isEmptyValue(value) ) {
             return;
         }
 

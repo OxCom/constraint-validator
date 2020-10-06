@@ -88,10 +88,32 @@ describe('Constraints/Length', function () {
             assert.strictEqual(e.message, `This value is too short. It should have ${min} character(s) or more.`);
         });
 
+        it('min: 5; value: ""; allow_empty_string: true', function () {
+            const min = 5;
+            const object = new Length({
+                min: min,
+                allow_empty_string: true
+            });
+
+            const e = object.validate('');
+            assert.ok(typeof e === 'undefined', e);
+        });
+
         it('min: 5; value: "hell"', function () {
             const min = 5;
             const object = new Length({
                 min: min,
+            });
+
+            const e = object.validate('hell');
+            assert.strictEqual(e.message, `This value is too short. It should have ${min} character(s) or more.`);
+        });
+
+        it('min: 5; value: "hell"; allow_empty_string: true', function () {
+            const min = 5;
+            const object = new Length({
+                min: min,
+                allow_empty_string: true
             });
 
             const e = object.validate('hell');
@@ -121,6 +143,17 @@ describe('Constraints/Length', function () {
             const max = 5;
             const object = new Length({
                 max: max,
+            });
+
+            const e = object.validate('');
+            assert.ok(typeof e === 'undefined', e);
+        });
+
+        it('max: 5; value: ""; allow_empty_string: true', function () {
+            const max = 5;
+            const object = new Length({
+                max: max,
+                allow_empty_string: true
             });
 
             const e = object.validate('');

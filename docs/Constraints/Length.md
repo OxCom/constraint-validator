@@ -3,6 +3,12 @@ Validates that a given string length is between some minimum and maximum value.
 
 ## Options
 
+##### trim
+type: `allow_empty_string` default: `false`  
+If set to true, empty strings are considered valid (which is the same behavior as previous Symfony versions). The default false value considers empty strings not valid.
+
+NOTE: *This option does not have any effect when no minimum length is given.*
+
 ##### max
 type: ```integer```  
 This option is the "max" length value. Validation will fail if the given value's length is greater than this max value.
