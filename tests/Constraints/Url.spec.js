@@ -34,7 +34,7 @@ describe('Constraints/Url', function () {
     describe('#validate()', function () {
         it('regexp mode - invalid', function () {
             const object = new Url({
-                mode: 'regexp',
+                mode: Url.MODE_REGEXP,
                 message: '{{ value }} is not valid.',
             });
 
@@ -49,6 +49,9 @@ describe('Constraints/Url', function () {
                 '//example.com/test?var=val',
                 '.com',
                 'smb://example.com/test?var=val',
+                'https:www',
+                'hello:world',
+                'mailto:name@email.com',
             ].forEach((value) => {
                 const e = object.validate(value);
                 assert.strictEqual(e.message, `${value} is not valid.`);
@@ -57,7 +60,7 @@ describe('Constraints/Url', function () {
 
         it('regexp mode - valid', function () {
             const object = new Url({
-                mode: 'regexp',
+                mode: Url.MODE_REGEXP,
                 message: '{{ value }} is not valid.',
             });
 
@@ -78,7 +81,7 @@ describe('Constraints/Url', function () {
 
         it('api mode - invalid', function () {
             const object = new Url({
-                mode: 'url_api',
+                mode: Url.MODE_URL_API,
                 message: '{{ value }} is not valid.',
             });
 
@@ -104,7 +107,7 @@ describe('Constraints/Url', function () {
 
         it('api mode - valid', function () {
             const object = new Url({
-                mode: 'url_api',
+                mode: Url.MODE_URL_API,
                 message: '{{ value }} is not valid.',
             });
 
@@ -113,6 +116,9 @@ describe('Constraints/Url', function () {
                 'https://example.com/test?var=val',
                 'smb://example.com/test?var=val',
                 'ftp://example.com/test?var=val',
+                'hello:world',
+                'https:www',
+                'mailto:name@email.com',
             ].forEach((value) => {
                 const e = object.validate(value);
                 assert.ok(typeof e === 'undefined', e);
@@ -121,7 +127,7 @@ describe('Constraints/Url', function () {
 
         it('html5 mode - invalid', function () {
             const object = new Url({
-                mode: 'html5',
+                mode: Url.MODE_HTML5,
                 message: '{{ value }} is not valid.',
             });
 
@@ -148,7 +154,7 @@ describe('Constraints/Url', function () {
 
         it('html5 mode - valid', function () {
             const object = new Url({
-                mode: 'html5',
+                mode: Url.MODE_HTML5,
                 message: '{{ value }} is not valid.',
             });
 
@@ -157,6 +163,9 @@ describe('Constraints/Url', function () {
                 'https://example.com/test?var=val',
                 'ftp://example.com/test?var=val',
                 'smb://example.com/test?var=val',
+                'hello:world',
+                'https:www',
+                'mailto:name@email.com',
             ].forEach((value) => {
                 const e = object.validate(value);
                 assert.ok(typeof e === 'undefined', e);
