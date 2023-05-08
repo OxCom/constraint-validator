@@ -1,7 +1,7 @@
 # Constraints form validator
 
 [![npm version](https://badge.fury.io/js/constraint-validator.png)](https://badge.fury.io/js/constraint-validator)
-[![Build Status](https://travis-ci.org/OxCom/constraint-validator.svg?branch=master)](https://travis-ci.org/OxCom/constraint-validator)
+[![Build Status](https://app.travis-ci.com/OxCom/constraint-validator.svg?branch=master)](https://app.travis-ci.com/OxCom/constraint-validator)
 [![codecov](https://codecov.io/gh/OxCom/constraint-validator/branch/master/graph/badge.svg)](https://codecov.io/gh/OxCom/constraint-validator)
 
 This library contains list of classes that allows developers to create custom validation flows.
